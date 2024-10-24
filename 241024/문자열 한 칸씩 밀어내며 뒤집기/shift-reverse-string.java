@@ -24,7 +24,7 @@ public class Main {
                     arr[j - 1] = arr[j];
                 arr[strSize - 1] = front;        // step3
 
-                inputStr = new String(arr);
+                inputStr = String.valueOf(arr);
                 System.out.println(inputStr);
             }
             else if(qType == 2) {
@@ -38,7 +38,7 @@ public class Main {
                     arr[j] = arr[j - 1];    
                 arr[0] = back;					        // step3
 
-                inputStr = new String(arr);
+                inputStr = String.valueOf(arr);
                 System.out.println(inputStr);
             }
             else if(qType == 3) {
@@ -53,7 +53,7 @@ public class Main {
                     arr[strSize - j - 1] = temp;
                 }
 
-                inputStr = new String(arr);
+                inputStr = String.valueOf(arr);
                 System.out.println(inputStr);
             }
         }
