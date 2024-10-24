@@ -8,6 +8,7 @@ public class Main {
         String str = sc.next();
         int query_num = sc.nextInt();
         int len = str.length();
+
         for(int i = 0; i < query_num; i++){
             int qtype = sc.nextInt();
             if(qtype == 1){
@@ -19,12 +20,11 @@ public class Main {
                 System.out.println(str);
             }
             else{
-                String temp = "";
-                for(int j = len-1; j>=0; j--){
-                    temp += str.charAt(j);
+                String reversed = ""; // 임시 문자열
+                for (int j = len - 1; j >= 0; j--) {
+                    reversed += str.charAt(j); // 역순으로 문자 추가
                 }
-                str = temp;
-                
+                str = reversed; // 뒤집은 문자열로 업데이트
                 System.out.println(str);
             }
         }
