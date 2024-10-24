@@ -9,7 +9,9 @@ public class Main {
         char nextCh = (char)(ch+1);
         if(nextCh == (char)('z'+1)){
            System.out.print('a'); 
+        }else{
+            System.out.print((char)(ch+1));
         }
-        System.out.print((char)(ch+1));
+        
     }
 }
