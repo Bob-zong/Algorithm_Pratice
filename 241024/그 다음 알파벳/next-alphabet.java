@@ -6,6 +6,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         char ch = sc.next().charAt(0);
 
+        char nextCh = (char)(ch+1);
+        if(nextCh == (char)('z'+1)){
+           System.out.print('a'); 
+        }
         System.out.print((char)(ch+1));
     }
 }
