@@ -20,11 +20,9 @@ public class Main {
                 System.out.println(str);
             }
             else{
-                String reversed = ""; // 임시 문자열
-                for (int j = len - 1; j >= 0; j--) {
-                    reversed += str.charAt(j); // 역순으로 문자 추가
-                }
-                str = reversed; // 뒤집은 문자열로 업데이트
+                StringBuffer sb = new StringBuffer(str);        
+                str = sb.reverse().toString();
+                
                 System.out.println(str);
             }
         }
