@@ -19,12 +19,12 @@ public class Main {
                 System.out.println(str);
             }
             else{
-                char arr[] = str.toCharArray();
                 String temp = "";
                 for(int j = len-1; j>=0; j--){
-                    temp += arr[j]; 
+                    temp += str.charAt(j);
                 }
                 str = temp;
+                
                 System.out.println(str);
             }
         }
