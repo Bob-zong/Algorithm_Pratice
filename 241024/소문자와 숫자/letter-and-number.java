@@ -9,13 +9,13 @@ public class Main {
         int len = str.length();
 
         for(int i = 0; i < len; i++){
-            if('A' <= str.charAt(i) && str.charAt(i) <'Z'){
+            if('A' <= str.charAt(i) && str.charAt(i) <='Z'){
                 System.out.print((char)(str.charAt(i) - 'A' + 'a'));
             }
-            else if('a' <= str.charAt(i) && str.charAt(i) <'z'){
+            else if('a' <= str.charAt(i) && str.charAt(i) <='z'){
                 System.out.print(str.charAt(i));
             }
-            else if('0' <= str.charAt(i) && str.charAt(i) <'9'){
+            else if('0' <= str.charAt(i) && str.charAt(i) <='9'){
                 System.out.print(str.charAt(i));
             }
         }
