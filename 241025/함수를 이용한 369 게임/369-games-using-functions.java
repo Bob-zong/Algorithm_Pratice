@@ -1,33 +1,36 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        // 여기에 코드를 작성해주세요.
-        // a 이상 b 이하 수들 중 3,6,9중에 하나가 있어야 함 or 3의 배수인 수
-        Scanner sc = new Scanner(System.in);
-        int num1 = sc.nextInt();
-        int num2 = sc.nextInt();
-        int cnt = 0;
-        for(int i = num1; i <= num2 ; i++){
-            if(threeMulti(i) || hasThree(i))
-                cnt++;
+    // 3, 6, 9 숫자가 
+    // 단 하나라도 포함되었는지를 확인합니다.
+    public static boolean contains369(int n) {
+        // 계속 10으로 나눠주며
+        // 일의 자리를 조사합니다.
+        while(n > 0) {
+            if(n % 10 == 3 || n % 10 == 6 || n % 10 == 9)
+                return true;
+            n /= 10;
         }
-        System.out.print(cnt);
+
+        return false;
     }
 
-    public static boolean threeMulti(int num){
-        return (num % 3 == 0);
+    // 3, 6, 9를 포함하거나 3의 배수인지를 판단합니다.
+    public static boolean is369Number(int n) {
+        return contains369(n) || (n % 3 == 0);
     }
+    
+    public static void main(String[] args) {
+        // 변수 선언 및 입력:
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
 
-    public static boolean hasThree(int num){
-         String str = Integer.toString(num);
-         boolean satisfied = false;
-         for(int i = 0; i < str.length(); i++){
-            if(str.charAt(i) == '3' || str.charAt(i) == '6'|| str.charAt(i) == '9'){
-                satisfied = true;
-                break;
-            }
-         }
-         return satisfied;
+        int cnt = 0;
+        for(int i = a; i <= b; i++)
+            if(is369Number(i))
+                cnt++;
+
+        System.out.println(cnt);
     }
 }
