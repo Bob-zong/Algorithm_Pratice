@@ -21,8 +21,12 @@ public class Main {
 
         } 
         System.out.println(cnt);
-        for(int i = 0; i < ((cnt/2)+1); i++){
-            System.out.println(arr[i]);
+        int k =0;
+        while(true){
+            if(arr[k] == null)
+                break;
+            System.out.println(arr[k++]);
+            
         }
     }
 }
