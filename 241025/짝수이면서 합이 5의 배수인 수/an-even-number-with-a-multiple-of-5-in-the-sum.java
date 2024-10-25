@@ -15,7 +15,11 @@ public class Main {
     public static boolean satisfiedNum(int num){
         String str = Integer.toString(num);
         // int sum = Integer.parseInt((str.charAt(0) + str.charAt(1)));
-        int sum = str.charAt(0) -'0' + str.charAt(1) - '0';
+        int sum =0 ;
+        for(int i = 0; i < str.length(); i++){
+			sum += Integer.parseInt(String.valueOf(str.charAt(i)));
+            // Integer.parseInt는 문자열을 숫자로 바꿔
+		}
         if(sum % 5 == 0 && num % 2 ==0)
             return true;
         else{
