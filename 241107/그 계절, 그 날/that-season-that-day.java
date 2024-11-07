@@ -18,11 +18,12 @@ public class Main {
         }
     }
     public static boolean isDay(int year, int month,int day){
-        if(month == 4 || month == 6 || month == 9 || month == 11)
+        if(month == 4 || month == 6 || month == 9 || month == 11){
             if(day <= 30)
                 return true;
             else
                 return false;
+        }
         else if(month == 2){
             if(isYear(year))
                 return true;
