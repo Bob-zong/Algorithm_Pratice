@@ -10,6 +10,7 @@ public class Main {
         day = sc.nextInt();
         boolean satisfied;
         satisfied = isDay(year,month,day);
+
         if(satisfied){
             System.out.print(printWeather(month));
         }
@@ -26,9 +27,16 @@ public class Main {
         }
         else if(month == 2){
             if(isYear(year))
-                return true;
+                if(day <= 29)
+                    return true;
+                else{
+                    return false;
+                }
             else{
-                return false;
+                if(day <= 28)
+                    return true;
+                else    
+                    return false;
             } 
         }else{
             return true;
