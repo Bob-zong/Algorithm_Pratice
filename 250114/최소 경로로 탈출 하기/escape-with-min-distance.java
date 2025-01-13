@@ -76,10 +76,10 @@ public class Main {
         BFS();
 
         if(step[n][m] == 0)
-            bw.write(String.valueOf('-1'));
+            bw.write(String.valueOf(-1));
         else
             bw.write(String.valueOf(step[n][m]));
-            
+
         bw.flush();
         bw.close();
     }
