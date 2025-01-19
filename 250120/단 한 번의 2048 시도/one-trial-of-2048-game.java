@@ -17,51 +17,61 @@ public class Main {
             return 3;
     }
 
-    public static void moveArr(int dirNum){
-        //아래로 미는 경우
-        if(dirNum == 0){
-            for(int j = 0; j < 4; j++){
-                for(int i = 2; i >= 0; i--){
-                    if(answer[i+1][j] == 0){
-                        answer[i+1][j] = answer[i][j];
-                        answer[i][j] = 0;
+    public static void moveArr(int dirNum) {
+    // 아래로 미는 경우
+    if (dirNum == 0) {
+        for (int j = 0; j < 4; j++) {
+            for (int i = 2; i >= 0; i--) {
+                for (int k = i; k < 3; k++) {
+                    if (answer[k + 1][j] == 0) {
+                        answer[k + 1][j] = answer[k][j];
+                        answer[k][j] = 0;
                     }
                 }
             }
         }
-        // 오른쪽으로 미는 경우
-        else if(dirNum == 1){
-            for(int i = 0; i < 4; i++){
-                for(int j = 2; j >= 0; j--){
-                    if(answer[i][j+1] == 0){
-                        answer[i][j+1] = answer[i][j];
-                        answer[i][j] = 0;
-                    }
-                }
-            }
-        }//위로 미는 경우
-        else if(dirNum == 2){
-            for(int j = 0; j < 4; j++){
-                for(int i = 1; i < 4; i++){
-                    if(answer[i-1][j] == 0){
-                        answer[i-1][j] = answer[i][j];
-                        answer[i][j] = 0;
-                    }
-                }
-            }
-        }//왼쪽으로 미는 경우
-        else{
-            for(int i = 0; i < 4; i++){
-                for(int j = 1; j < 4; j++){
-                    if(answer[i][j-1] == 0){
-                        answer[i][j-1] = answer[i][j];
-                        answer[i][j] = 0;
-                    }
-                }
-            }
-        }
-
     }
+    // 오른쪽으로 미는 경우
+    else if (dirNum == 1) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 2; j >= 0; j--) {
+                for (int k = j; k < 3; k++) {
+                    if (answer[i][k + 1] == 0) {
+                        answer[i][k + 1] = answer[i][k];
+                        answer[i][k] = 0;
+                    }
+                }
+            }
+        }
+    }
+    // 위로 미는 경우
+    else if (dirNum == 2) {
+        for (int j = 0; j < 4; j++) {
+            for (int i = 1; i < 4; i++) {
+                for (int k = i; k > 0; k--) {
+                    if (answer[k - 1][j] == 0) {
+                        answer[k - 1][j] = answer[k][j];
+                        answer[k][j] = 0;
+                    }
+                }
+            }
+        }
+    }
+    // 왼쪽으로 미는 경우
+    else {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 1; j < 4; j++) {
+                for (int k = j; k > 0; k--) {
+                    if (answer[i][k - 1] == 0) {
+                        answer[i][k - 1] = answer[i][k];
+                        answer[i][k] = 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
     public static void mergeArr(int dirNum){
         //아래로 
         if(dirNum == 0){
