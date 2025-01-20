@@ -22,11 +22,16 @@ public class Main {
 
         dp = new int[46];
         int n = Integer.parseInt(br.readLine());
-        memo = new int[46];
-        Arrays.fill(memo, -1);
+        // memo = new int[46];
+        // Arrays.fill(memo, -1);
+        dp[1] = 1;
+        dp[2] = 1;
 
-        int ans = Fibbo(n);
-        System.out.print(ans);
+        for(int i = 3; i <= n; i++){
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+        // int ans = Fibbo(n);
+        System.out.print(dp[n]);
 
         
     }
