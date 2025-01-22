@@ -33,6 +33,7 @@ public class Main {
                 // maxPos = new Pair(nx, ny);
                 sb.append(maxNum + " ");
                 move(nx, ny);
+                break;
             }
         }
     }
