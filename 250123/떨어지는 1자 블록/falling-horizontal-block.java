@@ -9,6 +9,9 @@ public class Main {
     //     return ( k + m - 1 <= n);
     // }
     public static boolean canGo(int row){
+        if(row > n)
+            return false;
+            
         for(int i = k; i <= (k + m - 1); i++){
             if(answer[row][i] != 0)
                 return false;
