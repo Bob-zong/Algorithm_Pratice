@@ -7,34 +7,7 @@ public class Main {
 
     public static ArrayList<Integer> answer = new ArrayList<>();
     public static int[] numArr;
-    
-    // String st = Integer.toBinaryString(int i) 십진수 2진수로 변환
-    // public static void print(){
-    //     int tempArr = new int[m];
-    //     String strArr = new String[m];
 
-    //     for(int i = 0; i < answer.size(); i++){
-    //         tempArr[i] = answer.get(i);
-    //         strArr[i] = toBinary(tempArr[i]);
-    //     }
-
-    //     String str;
-
-    //     for(int i = 0; i < m - 1; i++){
-            
-    //     }
-    // }
-    // public static String toBinary(int num){
-    //     Strintg str;
-
-    //     while(num > 0){
-    //         str += Stirng.ValueOf(num % 2);
-    //         num /= 10;
-    //     }
-
-    //     return str;
-    // }
-    
     public static int XOR(){
         int tmp = answer.get(0);
 
@@ -71,6 +44,7 @@ public class Main {
         // 010, 100, 101 -> 110 101 -> 011 -> 3
 
         numArr = new int[n];
+        
         st = new StringTokenizer(br.readLine());
 
         for(int i = 0; i < n; i++){
