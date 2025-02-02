@@ -52,7 +52,7 @@ public class Main {
         }
 
         for(int i = idx; i < n; i++){
-            answer.add(i);
+            answer.add(numArr[i]);
             choose(currNum + 1, idx + 1);
             answer.remove(answer.size() - 1);
         }
@@ -76,8 +76,10 @@ public class Main {
         for(int i = 0; i < n; i++){
             numArr[i] = Integer.parseInt(st.nextToken());    
         }
+        Arrays.sort(numArr);
 
         choose(0, 0);
+
         System.out.print(maxNum);
  
     }
