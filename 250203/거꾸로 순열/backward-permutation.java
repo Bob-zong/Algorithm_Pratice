@@ -20,7 +20,7 @@ public class Main {
             return;
         }
 
-        for(int i = 3; i >= 1; i--){
+        for(int i = n; i >= 1; i--){
             if(visited[i])
                 continue;
 
@@ -38,7 +38,7 @@ public class Main {
         n = Integer.parseInt(br.readLine());
         visited = new boolean[n+1];
 
-        choose(3);
+        choose(n);
 
         System.out.print(sb);
 
