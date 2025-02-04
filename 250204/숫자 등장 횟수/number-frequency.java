@@ -11,20 +11,28 @@ public class Main {
 
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        arr = new int[n+1];
+        arr = new int[n];
 
         st = new StringTokenizer(br.readLine());
-        for(int i = 1; i <= n; i++){
-            int num = Integer.parseInt(st.nextToken());
-            // arr[i] += 1;
-            map.put(num, i);
+
+        for(int i = 0; i < n; i++){
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+
+        for(int i = 0; i < n; i++){
+            if(!map.containsKey(arr[i])){
+                map.put(arr[i], 1);
+            }
+            else{
+                map.put(arr[i], map.get(arr[i]) + 1);
+            }
         }
         
         st = new StringTokenizer(br.readLine());
 
         for(int i = 0; i < m; i++){
             int num = Integer.parseInt(st.nextToken());
-            if(!map.containsKey(map.get(num))){
+            if(!map.containsKey(num)){
                 System.out.print("0 ");
             }
             else{
