@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Main {
     public static int n, m; 
-    public static Map<String, String> map;
+    public static Map<String, Integer> map;
     public static String answer[];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,22 +19,39 @@ public class Main {
         for(int i = 1; i <= n; i++){
             st = new StringTokenizer(br.readLine());
             String str = st.nextToken();
-            answer[i] = str;
             // int num = Integer.parseInt(st.nextToken());
-            map.put(str, String.valueOf(i));
+            map.put(str, i);
         }
 
         for(int i = 0; i < m; i++){
             st = new StringTokenizer(br.readLine());
             String str = st.nextToken();
-            if(map.containsKey(str)){
-                sb.append(map.get(str)).append("\n");  
+
+            for (Map.Entry<String, Integer> entry : map.entrySet()){
+            String key = entry.getKey();
+            int value = entry.getValue();
+            
+            if(str.equals(key)){
+                sb.append(map.get(key)).append("\n");
             }
-            else{
-                int idx = Integer.parseInt(str);
-                sb.append(answer[idx]).append("\n");
+            
+            if(str.equals(String.valueOf(value))){
+                sb.append(key).append("\n");
             }
         }
+        }
+
+        // for(int i = 0; i < m; i++){
+        //     st = new StringTokenizer(br.readLine());
+        //     String str = st.nextToken();
+        //     if(map.containsKey(str)){
+        //         sb.append(map.get(str)).append("\n");  
+        //     }
+        //     else{
+        //         int idx = Integer.parseInt(str);
+        //         sb.append(answer[idx]).append("\n");
+        //     }
+        // }
         System.out.print(sb);
 
 
@@ -42,3 +59,11 @@ public class Main {
 }
 
 // c c -> 3 c
+// for (Map.Entry<String, Integer> entry : grade.entrySet()) {
+//             String key = entry.getKey();
+//             Integer value = entry.getValue();
+            
+//             if (value == 90) {
+//                 System.out.println("90점을 맞은 학생은 : " + key);
+//             }
+//         }
