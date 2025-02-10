@@ -6,6 +6,7 @@ public class Main {
     public static boolean[] visited;
     public static List<Integer> arrList = new ArrayList<>();
     public static int cnt;
+    public static int[] answer;
     public static int print(){
         int sum = 0;
 
@@ -16,22 +17,23 @@ public class Main {
         return sum;
     }
 
-    public static void choose(int currNum){
-        if(currNum == 3){
+    public static void choose(int currNum, int idx){
+        if(currNum == 2){
             int num = print();
+            // System.out.println("value: " + num);
             if(num == k){
                 cnt += 1;
             }
             return;
         }
 
-        for(int i = 1; i <= n; i++){
+        for(int i = idx; i < n; i++){
             if(visited[i])
                 continue;
 
-            arrList.add(i);
+            arrList.add(answer[i]);
             visited[i] = true;
-            choose(currNum + 1);
+            choose(currNum + 1, i+1);
             arrList.remove(arrList.size()-1);
             visited[i] = false;
         }
@@ -42,7 +44,7 @@ public class Main {
         // String.valueOf(str) -> 문자열을 정수로
         // Integer.toString(num) -> 정수를 문자열로
         
-        int[] answer;
+        
         cnt = 0;
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -51,8 +53,8 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
 
-        answer = new int[n+1];
-        visited = new boolean[n+1];
+        answer = new int[n];
+        visited = new boolean[n];
 
         st = new StringTokenizer(br.readLine());
 
@@ -60,7 +62,7 @@ public class Main {
             answer[i] = Integer.parseInt(st.nextToken());
         }
         
-        choose(1);
+        choose(0, 0);
 
         System.out.print(cnt);
 
