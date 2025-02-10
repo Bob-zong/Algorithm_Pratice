@@ -11,13 +11,13 @@ public class Main {
         int k = Integer.parseInt(st.nextToken());
         
         Map<Integer, Integer> map = new HashMap<>();
-        int[] numArr = new int[n];
+        // int[] numArr = new int[n];
         st = new StringTokenizer(br.readLine());
         
         // 배열과 map에 값 저장 (map은 key의 빈도수 기록)
-        for (int i = 0; i < n; i++) {
-            numArr[i] = Integer.parseInt(st.nextToken());
-            map.put(numArr[i], map.getOrDefault(numArr[i], 0) + 1);
+        for (int i = 0; i < n; i++) { 
+            int num = Integer.parseInt(st.nextToken());
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
         
         // map의 key를 List로 추출
