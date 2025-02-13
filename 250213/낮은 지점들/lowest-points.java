@@ -21,10 +21,10 @@ public class Main {
                 map.put(x, y);
             }
         }
-        int sum = 0;
+        long sum = 0;
 
         for(int key : map.keySet()){
-            sum += map.get(key);
+            sum += map.get(key);            
         }
         System.out.print(sum);
     }
