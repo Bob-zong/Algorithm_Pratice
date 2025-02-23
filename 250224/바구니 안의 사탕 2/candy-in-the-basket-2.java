@@ -17,7 +17,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int candyNum = Integer.parseInt(st.nextToken());
             int candyPos = Integer.parseInt(st.nextToken());
-            answer[candyPos] = candyNum;
+            answer[candyPos] += candyNum;
         }
 
         int MaxCandyCnt = 0;
