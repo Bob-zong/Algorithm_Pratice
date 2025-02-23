@@ -8,7 +8,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         
-        int[] answer = new int[301];
+        int[] answer = new int[501];
         
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
@@ -22,7 +22,7 @@ public class Main {
 
         int MaxCandyCnt = 0;
 
-        for(int i = 0; i <= 300-(2*k+1); i++){
+        for(int i = 0; i <= 500-(2*k+1); i++){
             int cnt1 = 0;
             // int cnt2 = 0;
 
