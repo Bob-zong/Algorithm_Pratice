@@ -22,9 +22,12 @@ public class Main {
 
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n-2; j++){
-                for(int k = i+1; k < n; k++){
+                for(int k = 0; k < n; k++){
                     for(int l = 0; l < n-2; l++){
-                        int cnt = answer[i][j] + answer[i][j+1] + answer[i][j+2] +
+                        if(i == k && (Math.abs(l - j)) <=2)
+                            continue;
+                        int cnt = 
+                        answer[i][j] + answer[i][j+1] + answer[i][j+2] +
                         answer[k][l] + answer[k][l+1] + answer[k][l+2];
                         maxCnt = Math.max(maxCnt, cnt);
                     }
