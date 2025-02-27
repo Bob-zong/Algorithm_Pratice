@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+    static final int OFFSET = 100;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -16,12 +18,10 @@ public class Main {
 
             int x1, x2;
             x1 = Integer.parseInt(st.nextToken());
-            if(x1 < 0)
-                x1 += 100;
-
             x2 = Integer.parseInt(st.nextToken());
-            if(x2 < 0)
-                x2 += 100;
+
+            x1 += OFFSET;
+            x2 += OFFSET;
 
             for(int j = x1; j < x2; j++){
                 answer[j] += 1;
