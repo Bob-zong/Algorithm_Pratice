@@ -58,12 +58,3 @@ public class Main {
         System.out.print(area);
     }
 }
-
-
-닫기
-
-0 정답
-
-0 오답
-    }
-}
