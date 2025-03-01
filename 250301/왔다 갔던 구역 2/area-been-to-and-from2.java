@@ -23,13 +23,13 @@ public class Main {
             for(int j = 0; j < num; j++){
                 if(dir.equals("R")){
                     answer[currPos] += 1;
-                    if(j < num)
-                        currPos += 1;
+                    // if(j < num)
+                    currPos += 1;
                 }
                 else{
-                    answer[currPos] += 1;
-                    if(j < num)
-                        currPos -= 1;
+                    answer[--currPos] += 1;
+                    // if(j < num)
+                    // currPos -= 1;
                 }
                 
             }
