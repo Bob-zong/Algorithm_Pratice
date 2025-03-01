@@ -52,9 +52,5 @@ public class Main {
             area = (maxX + 1  - minX) * (maxY + 1 - minY);
 
         System.out.print(area);
-        else
-            area = (maxX + 1  - minX) * (maxY + 1 - minY);
-
-        System.out.print(area);
     }
 }
