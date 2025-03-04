@@ -25,6 +25,7 @@ public class Main {
 
         int currDir = 0;
         int x = 0, y = 0;
+
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
                 answer[i][j] = ' ';
@@ -47,7 +48,7 @@ public class Main {
 
             answer[x][y] = ch[currCh];
             currCh += 1;
-            if(currCh == 25)
+            if(currCh == 26)
                 currCh = 0;
 
         }
