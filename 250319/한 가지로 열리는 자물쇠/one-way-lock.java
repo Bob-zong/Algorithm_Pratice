@@ -18,7 +18,7 @@ public class Main {
         for(int i = 1; i <= n; i++)
             for(int j = 1; j <= n; j++)
                 for(int k = 1; k <= n; k++)
-                    if((i - num1) <= 2 || (j - num2) <= 2 || (k - num3) <= 2)
+                    if(Math.abs(i - num1) <= 2 || Math.abs(j - num2) <= 2 || Math.abs(k - num3) <= 2)
                         cnt += 1;
 
         System.out.print(cnt);  
