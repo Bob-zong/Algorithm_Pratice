@@ -24,6 +24,7 @@ public class Main {
         int ans = MAXVALUE;
 
         for(int i = 0; i < n; i++){
+            
             int minX = MAXVALUE, minY = MAXVALUE, maxX = MINVALUE, maxY = MINVALUE;
 
             for(int j = 0; j < n; j++){
@@ -40,6 +41,6 @@ public class Main {
             ans = Math.min(ans, area);
         }
 
-        System.out.print(area);
+        System.out.print(ans);
     }
 }
