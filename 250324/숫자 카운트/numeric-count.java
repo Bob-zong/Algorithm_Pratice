@@ -19,9 +19,9 @@ public class Main {
 
         int cnt = 0;
 
-        for(int i = 1; i < 10; i++){
-            for(int j = 1; j < 10; j++){
-                for(int k = 1; k < 10; k++){
+        for(int i = 1; i <= 9; i++){
+            for(int j = 1; j <= 9; j++){
+                for(int k = 1; k <= 9; k++){
                     if(i == j || j == k || k == i)
                         continue;
                     
@@ -31,6 +31,7 @@ public class Main {
                         int x = num[idx] / 100;
                         int y = num[idx] / 10 % 10;
                         int z = num[idx] % 10;
+
                         int cnt1 = 0, cnt2 = 0;
                         
                         if(x == i)
@@ -44,7 +45,7 @@ public class Main {
                             cnt2 += 1;
                         if(y == i || y == k)
                             cnt2 += 1;
-                        if(z == i || x == j)
+                        if(z == i || z == j)
                             cnt2 += 1;
                         
                         if(cnt1 != count1[idx] || cnt2 != count2[idx]) {
@@ -52,6 +53,7 @@ public class Main {
                             break;
                         }
                     }
+
                     if(succeeded) cnt++;
                 }
             }
