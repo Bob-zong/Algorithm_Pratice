@@ -16,6 +16,8 @@ public class Main {
             stuCost[i] = Integer.parseInt(br.readLine());
         }
 
+        Arrays.sort(stuCost);
+        
         for(int i = 0; i < n; i++){
             stuCost[i] /= 2;
             int sum = 0;
