@@ -23,20 +23,16 @@ public class Main {
 
         for(int i = 1; i < n-1; i++){
             int dist = 0;
-            int tmpX = xArr[i];
-            int tmpY = yArr[i];
-
-            xArr[i] = xArr[i-1];
-            yArr[i] = yArr[i-1];
+            int prevIdx = 0;
 
             for(int j = 1; j < n; j++){
-                dist += Math.abs(xArr[j] - xArr[j-1]) + Math.abs(yArr[j] - yArr[j-1]);
+                if(i == j) continue;
+                dist += Math.abs(xArr[j] - xArr[prevIdx]) + Math.abs(yArr[j] - yArr[prevIdx]);
+                prevIdx = j;
             }
 
             ans = Math.min(dist, ans);
 
-            xArr[i] = tmpX;
-            yArr[i] = tmpY;
         }
 
         System.out.print(ans);
