@@ -17,18 +17,19 @@ public class Main {
         }
 
         for(int i = 0; i < n; i++){
-            stuCost[i] /= stuCost[i] / 2;
+            stuCost[i] /= 2;
             int sum = 0;
             int stuNum = 0;
 
             for(int j = 0; j < n; j++){
-                if(sum <= money)
-                    sum += stuCost[j];
-                
-                if(sum > money)
-                    stuNum = j;
+                sum += stuCost[j];
+                if(sum > money){
+                    break;
+                }
+                stuNum = j+1;
+                // System.out.println("stuNum: " + stuNum + " " + j);
             }
-            stuCost[i] /= stuCost[i] * 2;
+            stuCost[i] *= 2;
             max = Math.max(max,stuNum);
         }
         
