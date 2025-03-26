@@ -1,13 +1,13 @@
 import java.util.*;
 import java.io.*;
 
-// class Pair {
-//     int x, y;
-//     public Pair(int x, int y){
-//         this.x = x;
-//         this.y = y;
-//     }
-// }
+class Pair {
+    int x, y;
+    public Pair(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+}
 
 // public class Main {
 //     public static int n , row, col;
