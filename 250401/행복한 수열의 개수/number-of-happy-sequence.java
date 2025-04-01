@@ -43,6 +43,8 @@ public class Main {
                     break;
                 }
             }
+            if(n == 1 && m == 1)
+                happy = true;
 
             if(happy)
                 ans += 1;
@@ -64,6 +66,8 @@ public class Main {
                     break;
                 }
             }
+            if(n == 1 && m == 1)
+                happy = true;
 
             if(happy)
                 ans += 1;
