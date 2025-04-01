@@ -23,7 +23,7 @@ public class Main {
         answer = new int[3*n+1];
         
         for(int i = 1; i <= 3*n; i++){
-            if(i % 3 == 1)
+            if(i % n == 1)
                 st = new StringTokenizer(br.readLine());
             answer[i] = Integer.parseInt(st.nextToken());
         }
@@ -33,7 +33,7 @@ public class Main {
 
         for(int i = 1; i <= 3*n; i++){
             sb.append(answer[i]).append(" ");
-            if(i % 3 == 0)
+            if(i % n == 0)
                 sb.append("\n");
         }
 
