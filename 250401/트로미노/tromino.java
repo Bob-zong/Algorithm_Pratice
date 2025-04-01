@@ -13,7 +13,7 @@ public class Main {
 
                 for(int x = 0; x < 2; x++){
                     for(int y = 0; y < 2; y++){
-                        int val = sum - answer[x][y];
+                        int val = sum - answer[i+x][j+y];
                         max = Math.max(max, val);
                     }
                 } 
