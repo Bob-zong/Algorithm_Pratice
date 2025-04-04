@@ -44,7 +44,7 @@ public class Main {
                 break;
             }
 
-            if (visited[nx][ny] >= 2) { // 같은 곳을 여러 번 방문하면 종료
+            if (visited[nx][ny] > 4) { // 같은 곳을 여러 번 방문하면 종료
                 time = -1;
                 break;
             }
