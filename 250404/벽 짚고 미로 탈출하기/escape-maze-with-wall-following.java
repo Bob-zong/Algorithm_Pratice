@@ -47,20 +47,30 @@ public class Main {
             int nx = x + dx[dirNum];
             int ny = y + dy[dirNum];
 
-            if(visited[nx][ny] >= 2){
-                time = -1;
-                break;
-            }
             if(!inRange(nx, ny)){
                 time += 1;
                 break;
             }
+            
+            if(visited[nx][ny] >= 2){
+                time = -1;
+                break;
+            }
+            
 
             if(checkWall(nx, ny)){
                 changeDir(0);
                 continue;
             }else{
-                changeDir(1);
+                if(checkWall(nx+dx[(dirNum+3) % 4], ny + dy[(dirNum+3) % 4])){
+                    x = nx;
+                    y = ny;
+                    time += 1;
+                    visited[x][y] += 1;
+                    continue;
+                }else{
+                    changeDir(1);
+                }
             }
 
             x = nx;
