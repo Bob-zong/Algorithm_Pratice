@@ -70,11 +70,13 @@ public class Main {
                         int ny = j + dy[dirNum];
                         if(inRange(nx, ny)){
                             nextGrid[nx][ny] += 1;
-                            nextDirArr[nx][ny] = dirNum;
+                            if(nextGrid[nx][ny] == 1){ // 처음 들어온 구슬만 방향 저장
+                                nextDirArr[nx][ny] = dirNum;
+                            }
                         }
                         else{
                             nextDirArr[i][j] = 3 - dirNum;
-                            nextGrid[i][j] = 1; // 구슬은 제자리에 남아 있음
+                            nextGrid[i][j] += 1; // 구슬은 제자리에 남아 있음
                         }
                     }
                 }
