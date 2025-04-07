@@ -28,7 +28,7 @@ public class Main {
 
         for(int i = x1; i <= x2; i++){
             for(int j = y1; j <= y2; j++){
-                if(answer[i][j] < 0)
+                if(answer[i][j] <= 0)
                     return -1;
                 else
                     Scale += 1;
