@@ -53,57 +53,28 @@ public class Main {
     }
 
     public static int getPairCnt() {
-    int cnt = 0;
+        int cnt = 0;
 
-    // 가로 체크
-    for (int i = 1; i <= n; i++) {
-        int j = 1;
-        while (j < n) {
-            if (nextGrid[i][j] != 0 && nextGrid[i][j] == nextGrid[i][j + 1]) {
-                int val = nextGrid[i][j];
-                int length = 2;
-                int k = j + 2;
-
-                while (k <= n && nextGrid[i][k] == val) {
-                    length++;
-                    k++;
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j < n; j++){
+                if(nextGrid[i][j] == nextGrid[i][j+1] && nextGrid[i][j] != 0){
+                    cnt += 1;
+                    // j = j+1;
                 }
-
-                if (length == 2) cnt++;
-
-                j = k; // 연속된 블럭 넘기기
-            } else {
-                j++;
             }
         }
-    }
 
-    // 세로 체크
-    for (int j = 1; j <= n; j++) {
-        int i = 1;
-        while (i < n) {
-            if (nextGrid[i][j] != 0 && nextGrid[i][j] == nextGrid[i + 1][j]) {
-                int val = nextGrid[i][j];
-                int length = 2;
-                int k = i + 2;
-
-                while (k <= n && nextGrid[k][j] == val) {
-                    length++;
-                    k++;
+        for(int j = 1; j <= n; j++){
+            for(int i = 1; i < n; i++){
+                if(nextGrid[i][j] == nextGrid[i+1][j] && nextGrid[i][j] != 0){
+                    cnt += 1;
+                    // i = i+1;
                 }
-
-                if (length == 2) cnt++;
-
-                i = k;
-            } else {
-                i++;
             }
         }
+
+        return cnt;
     }
-
-    return cnt;
-}
-
     
     public static void initArray() {
         for(int i = 1; i <= n; i++){
@@ -142,8 +113,15 @@ public class Main {
                 initArray();
             }
         }
-        // Bomb(3, 3);
+
+        // Bomb(4, 4);
         // dropBomb();
+        // for(int i = 1; i <= n; i++){
+        //     for(int j = 1; j <= n; j++){
+        //         System.out.print(nextGrid[i][j] + " ");
+        //     }
+        //     System.out.println();
+        // }
         // maxPair = Math.max(maxPair,getPairCnt());
 
         System.out.print(maxPair);
