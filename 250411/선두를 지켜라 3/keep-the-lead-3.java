@@ -57,7 +57,7 @@ public class Main {
 
         int currHead = -1;
 
-        for(int i = 1; i <= 1000; i++){
+        for(int i = 1; i <= 1000000; i++){
             int head = 0;
 
             if(aPos[i] > bPos[i]){
