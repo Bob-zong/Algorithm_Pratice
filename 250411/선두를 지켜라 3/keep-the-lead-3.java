@@ -26,8 +26,8 @@ public class Main {
         int bCurrTime = 1;
         int bCurrPos = 0;
 
-        aPos = new int[1001];
-        bPos = new int[1001];
+        aPos = new int[1000001];
+        bPos = new int[1000001];
 
         for(int i = 0; i < n; i++){
             st = new StringTokenizer(br.readLine());
