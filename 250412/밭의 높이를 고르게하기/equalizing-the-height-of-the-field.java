@@ -25,10 +25,11 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         int len = st.countTokens();
         // System.out.print(len);
-        for(int i = 0; i < len; i++){
+        for(int i = 0; i < n; i++){
             answer[i] = Integer.parseInt(st.nextToken());
         }
-        for(int i = 0; i < len - t; i++){
+
+        for(int i = 0; i <= n - t; i++){
             int cost = 0;
             for(int j = i; j < i + t; j++){
                 cost += Math.abs(answer[j] - h);
