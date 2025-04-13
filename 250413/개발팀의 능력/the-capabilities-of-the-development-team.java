@@ -6,6 +6,8 @@ public class Main {
     public static int[] answer;
     public static int sumValue, minValue;
 
+    public static final int MAXVALUE = Integer.MAX_VALUE;
+
     public static int getDiff(int num1, int num2) {
         int sum1 = answer[num1] + answer[num2];
         int sum2 = 0;
@@ -53,7 +55,9 @@ public class Main {
                 minValue = Math.min(minValue, diff);
             }    
         }
-
-        System.out.print(minValue);
+        if(minValue == MAXVALUE)
+            System.out.print("-1");
+        else
+            System.out.print(minValue);
     }
 }
