@@ -14,14 +14,16 @@ public class Main {
     public static int getCnt(int discountIdx) {
         int[] totalCost = new int[n];
         giftCost[discountIdx] /= 2;
+
         for(int i = 0; i < n; i++){
             totalCost[i] = giftCost[i] + deliveryCost[i];
         }
-
+        giftCost[discountIdx] *= 2;
         Arrays.sort(totalCost);
 
         int sum = 0;
         int cnt = 0;
+
         for(int i = 0; i < n; i++){
             sum += totalCost[i];
             if(sum > b)
@@ -29,8 +31,6 @@ public class Main {
             
             cnt += 1;
         }
-
-        giftCost[discountIdx] *= 2;
         return cnt;
         
     }
