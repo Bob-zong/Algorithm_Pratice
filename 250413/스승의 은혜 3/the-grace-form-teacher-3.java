@@ -30,6 +30,7 @@ public class Main {
             cnt += 1;
         }
 
+        totalCost[discountIdx] *= 2;
         return cnt;
         
     }
