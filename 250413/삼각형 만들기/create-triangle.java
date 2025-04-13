@@ -77,7 +77,7 @@ public class Main {
             }
         }
 
-        System.out.print(2 maxArea);
+        System.out.print(maxArea);
         
     }
 }
