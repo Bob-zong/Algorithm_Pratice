@@ -30,7 +30,7 @@ public class Main {
             cnt += 1;
         }
 
-        giftCostCost[discountIdx] *= 2;
+        giftCost[discountIdx] *= 2;
         return cnt;
         
     }
