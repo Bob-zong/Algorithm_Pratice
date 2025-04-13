@@ -64,7 +64,7 @@ public class Main {
         for(int i = 0; i < n; i++){
             st = new StringTokenizer(br.readLine());
             xArr[i] = Integer.parseInt(st.nextToken());
-            yArr[i] = Integer.parseInt(St.nextToken());
+            yArr[i] = Integer.parseInt(st.nextToken());
         }
 
 
