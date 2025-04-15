@@ -21,15 +21,25 @@ public class Main {
             answer[i] *= 2;
 
             for(int j = 0; j < n; j++){
-                int diffSum = 0;
-                for(int k = 1; k < n; k++){
-                    if(j == k)
+                int[] newArray = new int[n-1];
+                int idx = 0;
+                int sumDiff = 0;
+
+                for(int k = 0; k < n; k++){
+                    if(k == j)
                         continue;
-                    
-                    diffSum += Math.abs(answer[k] - answer[k-1]);
+
+                    newArray[idx++] = answer[k];
                 }
-                minDiff = Math.min(diffSum, minDiff);
+
+
+                for(int k = 0; k < n - 2; k++){
+                    sumDiff += Math.abs(newArray[k+1] - newArray[k]);
+                } 
+            minDiff = Math.min(minDiff,sumDiff);
+
             }
+
             answer[i] /= 2;
 
         }
