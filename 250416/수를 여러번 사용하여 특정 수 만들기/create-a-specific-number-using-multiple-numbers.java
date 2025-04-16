@@ -29,6 +29,16 @@ public class Main {
             }
         }
 
+        for(int i = 0; i <= maxB; i++){
+            int sum = b * i;
+            for(int j = 0; j <= maxA; j++){
+                sum += a;
+                if(sum <= c){
+                    maxNum = Math.max(sum, maxNum);
+                }
+            }
+        }
+
         System.out.print(maxNum);
     }
 }
