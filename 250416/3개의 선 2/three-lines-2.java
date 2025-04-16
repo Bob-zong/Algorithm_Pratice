@@ -28,12 +28,12 @@ public class Main {
         }
 
 
-        int answer = -1;
+        int answer = 0;
         for(int i = 0; i < 11; i++){
             for(int j = 0; j < 11; j++){
                 for(int k = 0; k < 11; k++){
-                    boolean s = false;
-                     // x만 3개
+                boolean s = true;
+                // x만 3개
                 for(int l = 0; l<n; l++){
                     if(x[l] == i || x[l] == j || x[l] == k) continue;
                     s = false;
@@ -65,6 +65,7 @@ public class Main {
                     if(y[l] == i || y[l] == j || y[l] == k) continue;
                     s = false;
                 }
+
                 if(s)
                     answer = 1;
                 }
