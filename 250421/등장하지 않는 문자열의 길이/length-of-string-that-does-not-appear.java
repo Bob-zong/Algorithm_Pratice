@@ -2,55 +2,40 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    // while로 n/2 까지 돌리면서 길이를 찾는다.
-    // for 1 ~ n 까지 돌리면서 똑같은 문자열이 있는지 찾는다.
-    // 
-    public static final int MAXNUM = Integer.MAX_VALUE;
-
     public static int n;
-    public static char[] answer;
-    public static int minLength;
-    public static List<Character> charList;
+    public static String str;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         n = Integer.parseInt(br.readLine());
-        minLength = MAXNUM;
+        str = br.readLine();
 
-        answer = new char[n];
-
-        String str = br.readLine();
-
-        answer = str.toCharArray();
-
-        charList = new ArrayList<>();
-
-        for(char c : answer)
-            charList.add(c);
         int ans = 0;
 
-        for(int i = 1; i < n; i++){ // 길이가 1 ~ n 까지
-            boolean twice = false;
+        // 길이 1부터 n까지 확인
+        for (int len = 1; len <= n; len++) {
+            Set<String> set = new HashSet<>();
+            boolean duplicated = false;
 
-            for(int j = 0; j <= n - i; j++){
-                for(int k = j + 1; k <= n-i; k++){
-                    boolean isSame = false;
+            // 길이 len의 substring을 set에 넣으며 중복 확인
+            for (int i = 0; i <= n - len; i++) {
+                String sub = str.substring(i, i + len);
 
-                    if(str.substring(j, j+i).equals(str.substring(k, k+i)))
-                        isSame = true;
-                    if(isSame)
-                        twice = true;
-
+                if (set.contains(sub)) {
+                    duplicated = true;
+                    break;
                 }
-                
-                
+                set.add(sub);
             }
 
-            if(twice)
-                ans = i+1;
+            // 중복이 없다면 그 길이가 정답
+            if (!duplicated) {
+                ans = len;
+                break;  // 더 짧은 길이는 어차피 불가능하니 바로 종료
+            }
         }
-        System.out.print(ans);
 
-        
+        System.out.print(ans);
     }
 }
