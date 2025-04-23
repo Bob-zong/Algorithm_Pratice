@@ -2,56 +2,56 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+    public static final int MAX_N = 100;
+    public static final int MAX_A = 10000;
+    
+    public static int n, m;
+    public static int[] a = new int[MAX_N];
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
+        answer = new int[n];
+        
         st = new StringTokenizer(br.readLine());
 
-        int max = 0;
-        int sum = 0;
-
-        for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-            max = Math.max(max, arr[i]);
-            sum += arr[i];
+        for(int i = 0; i < n; i++){
+            a[i] = Integer.parseInt(st.nextToken());
         }
 
-        int left = max;
-        int right = sum;
-        int result = sum;
+        int ans = MAX_A;
 
-        while (left <= right) {
-            int mid = (left + right) / 2;
+        for(int i = 1; i <= MAX_A; i++){
+            boolean possible = true;
+            int section = 1;
 
-            if (isPossible(arr, M, mid)) {
-                result = mid;       // 가능한 경우 저장
-                right = mid - 1;    // 더 작은 값 탐색
-            } else {
-                left = mid + 1;     // 더 큰 값 필요
+            int cnt = 0;
+
+            for(int j = 0; j < n; j++){
+                if(a[j] > i) {
+                    possible = false;
+                    break;
+                }
+
+                if(cnt + a[j] > i) {
+                    cnt = 0;
+                    section += 1;
+                }
+
+                cnt += a[j];
+            }
+
+            if(possible && section <= m){
+                ans = Math.min(ans, i);
             }
         }
 
-        System.out.println(result);
-    }
+        System.out.print(ans);
 
-    public static boolean isPossible(int[] arr, int M, int maxSum) {
-        int count = 1;
-        int tempSum = 0;
 
-        for (int num : arr) {
-            if (tempSum + num > maxSum) {
-                count++;
-                tempSum = num;
-            } else {
-                tempSum += num;
-            }
-        }
-
-        return count <= M;
     }
 }
