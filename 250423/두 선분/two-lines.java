@@ -18,7 +18,7 @@ public class Main {
         int sec1 = Math.max(x1, x2);
         int sec2 = Math.max(x3, x4);
         
-        if(sec1 > sec2)
+        if(sec1 >= sec2)
             if(x1 <= x4)
             condition = true;
         // x1 ~ x2가 더 큰 경우
