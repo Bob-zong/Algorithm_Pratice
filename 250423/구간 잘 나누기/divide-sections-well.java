@@ -15,7 +15,7 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
 
-        answer = new int[n];
+        a = new int[n];
         
         st = new StringTokenizer(br.readLine());
 
