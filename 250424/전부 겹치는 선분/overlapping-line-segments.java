@@ -19,15 +19,13 @@ public class Main {
             for(int j = x1; j <= x2; j++)
                 answer[j] += 1;
         }
-
         for(int i = 0; i < 100; i++) {
-            if(answer[i] == 3){
+            if(answer[i] == n){
                 System.out.print("Yes");
                 return;
             }
                 
         }
-
         System.out.print("No");
     }
 }
