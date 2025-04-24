@@ -10,7 +10,7 @@ public class Main {
 
         n = Integer.parseInt(br.readLine());
 
-        int[] answer = new int[100];
+        int[] answer = new int[101];
 
         for(int i = 0 ; i < n; i++) {
             st = new StringTokenizer(br.readLine());
@@ -19,7 +19,7 @@ public class Main {
             for(int j = x1; j <= x2; j++)
                 answer[j] += 1;
         }
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i <= 100; i++) {
             if(answer[i] == n){
                 System.out.print("Yes");
                 return;
