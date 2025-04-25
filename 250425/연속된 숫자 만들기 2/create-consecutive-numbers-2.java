@@ -12,23 +12,16 @@ public class Main {
         int[] answer = new int[]{num1, num2, num3};
         Arrays.sort(answer);
 
-        boolean condition = false;
+
         int cnt = 0;
 
-        if(answer[1] == (answer[0]+1) && answer[1] == (answer[2]-1)){
-                condition = true;
-        }
-        
-        while(!condition) {
-            int temp = (answer[1] + answer[2]) / 2;
-            answer[0] = temp;
-            cnt += 1;
-            Arrays.sort(answer);
-            
-            if(answer[1] == (answer[0]+1) && answer[1] == (answer[2]-1)){
-                condition = true;
-            }
-        }
+        if(answer[2] == (answer[1] + 1) && (answer[1] == answer[0] + 1))
+            cnt = 0;
+        else if(answer[2] - answer[1] > 2 || answer[1] - answer[0] > 2)
+            cnt = 2;
+        else if(answer[2] - answer[1] == 2 || answer[1] - answer[0] == 2)
+            cnt = 1;
+
 
         System.out.print(cnt);
     }
