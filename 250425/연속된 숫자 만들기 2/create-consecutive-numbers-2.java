@@ -17,10 +17,11 @@ public class Main {
 
         if(answer[2] == (answer[1] + 1) && (answer[1] == answer[0] + 1))
             cnt = 0;
-        else if(answer[2] - answer[1] > 2 || answer[1] - answer[0] > 2)
-            cnt = 2;
         else if(answer[2] - answer[1] == 2 || answer[1] - answer[0] == 2)
             cnt = 1;
+        else if(answer[2] - answer[1] > 2 || answer[1] - answer[0] > 2)
+            cnt = 2;
+        
 
 
         System.out.print(cnt);
