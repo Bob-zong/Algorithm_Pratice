@@ -23,7 +23,7 @@ public class Main {
         int minLen = Integer.MAX_VALUE;
 
         // 3번
-        minLen = Math.min(minLen, B-A);
+        minLen = Math.min(minLen, Math.abs(B-A));
         // 1번
         minLen = Math.min(minLen, Math.abs((x - A)) + Math.abs((y - B)));
 
