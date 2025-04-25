@@ -3,26 +3,30 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int X = sc.nextInt();
 
-        int t = 0;
-        while (true) {
-            t++;
-            int total = 0;
-            int speed = 1;
+        int n = sc.nextInt();
+        int speed = 1;
+        int time = 0;
+        int distance = 0;
 
-            for (int i = 0; i < t; i++) {
-                total += speed;
+        while (distance < n) {
+            // 삼각수 계산 미리 저장
+            int nextSpeedDistance = (speed + 1) * (speed + 2) / 2;
+            int currentSpeedDistance = speed * (speed + 1) / 2;
 
-                // 속도를 최대한 유지하다가 감속
-                if ((t - i - 1) >= speed) speed++;
-                else if ((t - i - 1) < speed) speed--;
-            }
+            // 거리 증가 및 시간 증가
+            distance += speed;
+            time++;
 
-            if (total >= X) {
-                System.out.println(t);
-                return;
-            }
+            // 속도 조정
+            if (distance + nextSpeedDistance <= n)
+                speed++;
+            else if (distance + currentSpeedDistance <= n)
+                speed = speed;
+            else
+                speed--;
         }
+
+        System.out.print(time);
     }
 }
