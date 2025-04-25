@@ -30,7 +30,7 @@ public class Main {
             boolean read = false;
 
             for(int j = 0; j < m; j++){
-                if(u[j] >= u[p-1] && c[j] == person)
+                if(j >= p-1 && c[j] == person)
                     read = true;
             }
 
