@@ -1,58 +1,40 @@
-import java.util.*;
+import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int n = sc.nextInt();
-        int[] numbers = new int[n];
+        int ans = 0;
 
-        int evenCount = 0;
-        int oddCount = 0;
+        int odd = 0;
+        int even = 0;
 
-        // 입력 받고 짝수, 홀수 개수 세기
-        for (int i = 0; i < n; i++) {
-            numbers[i] = sc.nextInt();
-            if (numbers[i] % 2 == 0) {
-                evenCount++;
-            } else {
-                oddCount++;
+        for (int i = 0; i<n; i++){
+            int num = sc.nextInt();
+            if(num % 2 != 0) odd++;
+            else even++;
+        }
+
+        if (even > odd) ans = odd * 2 +1;
+
+        else if ( even == odd ) ans = even + odd;
+
+        else{
+            ans = even * 2;
+            int size = odd - even;
+
+            if (size % 3 == 0)
+                ans += (size/3)*2;
+            
+            else{
+                if((size % 3) % 2 ==0)
+                    ans += size / 3 * 2 +1;
+                else
+                    ans +=  size /3 * 2 - 1;;
             }
         }
 
-        int result = 0;
-        boolean expectEven = true; // 처음은 짝수 합 기대
-
-        while (true) {
-            if (expectEven) { // 짝수 합을 만들어야 할 때
-                if (evenCount > 0) {
-                    evenCount--;
-                    result++;
-                    expectEven = false;
-                } else if (oddCount >= 2) {
-                    oddCount -= 2;
-                    result++;
-                    expectEven = false;
-                } else {
-                    break;
-                }
-            } else { // 홀수 합을 만들어야 할 때
-                if (oddCount > 0) {
-                    oddCount--;
-                    result++;
-                    expectEven = true;
-                } else {
-                    break;
-                }
-            }
-        }
-
-        // 다 사용했는지 체크
-        if (evenCount == 0 && oddCount == 0) {
-            System.out.println(result);
-        } else {
-            // 모두 사용 못했으면 마지막 묶음을 하나 제거해야 함
-            System.out.println(result - 1);
-        }
+        System.out.print(ans);
     }
 }
