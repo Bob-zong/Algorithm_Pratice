@@ -20,7 +20,7 @@ public class Main {
         int cnt = 0;
         for(int i = 0; i < n; i++){
             if(answer[i] == 1){
-                i = i + m + 1;
+                i = i + m + m;
                 cnt += 1;
             }
         }
