@@ -7,21 +7,26 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         int[] answer = new int[n];
-        int sum = 0;
-        for(int i = 0; i < n; i++){
+        long[] prefixSum = new long[n+1];  // 누적합을 저장할 배열 (prefixSum[0] = 0)
+
+        // 값 입력 및 누적합 계산
+        for (int i = 0; i < n; i++) {
             answer[i] = Integer.parseInt(br.readLine());
-            sum += answer[i];
+            prefixSum[i+1] = prefixSum[i] + answer[i];  // 현재까지의 누적합
         }
 
-        sum = sum / n;
-        int ans = 0;
+        // 총합을 구하는 대신, 누적합을 활용하여 평균을 구할 수 있음
+        long totalSum = prefixSum[n];
+        long average = totalSum / n;
 
-        for(int i = 0; i < n; i++){
-            if(answer[i] > sum)
-                ans += answer[i] - sum;
+        long ans = 0;
+        // 평균보다 큰 값들에 대해서 차이를 누적합으로 계산
+        for (int i = 0; i < n; i++) {
+            if (answer[i] > average) {
+                ans += answer[i] - average;
+            }
         }
 
         System.out.print(ans);
-
     }
 }
