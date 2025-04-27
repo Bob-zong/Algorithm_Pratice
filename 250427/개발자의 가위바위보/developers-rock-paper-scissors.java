@@ -44,7 +44,7 @@ public class Main {
         //진 횟수
         cnt3 = n - cnt2 - cnt1;
 
-        maxWinCnt = Math.max(maxWinCnt, Math.max(cnt1, Math.max(cnt2, cnt3)));
+        maxWinCnt = Math.max(cnt1, cnt3);
 
         System.out.print(maxWinCnt);
         
