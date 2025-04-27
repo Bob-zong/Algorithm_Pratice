@@ -30,7 +30,11 @@ public class Main {
         }        
         int len = 0;
         // System.out.printf("%d %d %d %d %d %d",Lrow , Lcol , Rrow , Rcol , Brow , Bcol);
-        if((Brow == Rrow && Rrow == Lrow) || (Bcol == Rcol && Rcol == Lcol)){
+        if((Brow == Rrow && Rrow == Lrow) || (Bcol == Rcol && Rcol == Lcol) &&
+            (Math.abs(Lrow - Brow) > Math.abs(Lrow - Rrow) || 
+            Math.abs(Lcol - Bcol) > Math.abs(Lcol - Rcol)
+            )
+         ){
             len = Math.abs(Lrow-Brow) + Math.abs(Lcol-Bcol) - 1;
             len += 2;     
         }else{
