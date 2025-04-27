@@ -21,16 +21,18 @@ public class Main {
             if(answer[i] == 0) {
                 answer[i] = 1;
             }else continue;
+
             int curIdx = 0;
+
             for(int j = 0; j < len; j++){
-                if(answer[i] == 1){
+                if(answer[j] == 1){
                     curIdx = j;
                     break;
                 }
             }
             
             for(int j = curIdx + 1; j < len; j++){
-                if(answer[j] == 1) {
+                if(answer[j] == 1 && j != curIdx) {
                     minLen = Math.min(minLen, j-curIdx);
                     curIdx = j;
                     
