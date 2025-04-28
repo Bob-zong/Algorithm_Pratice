@@ -6,7 +6,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = 6;
+        int n = 7;
 
         int[] answer = new int[n];
 
