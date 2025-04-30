@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Pair implements Comparable<Pair> {
+class Pair {
     int x, y;
 
     public Pair(int x, int y){
@@ -9,22 +9,31 @@ class Pair implements Comparable<Pair> {
         this.y = y;
     }
 
-    @Override
-    public int compareTo(Pair p) {
-        int thisSum = this.x + this.y;
-        int otherSum = p.x + p.y;
+    // @Override
+    // public int compareTo(Pair p) {
+    //     int thisSum = this.x + this.y;
+    //     int otherSum = p.x + p.y;
 
-        if (thisSum != otherSum)
-            return thisSum - otherSum;
-        else
-            return this.x - p.x;
-    }
+    //     if (thisSum != otherSum)
+    //         return thisSum - otherSum;
+    //     else
+    //         return this.x - p.x;
+    // }
 }
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        PriorityQueue<Pair> pq = new PriorityQueue<>();
+        PriorityQueue<Pair> pq = new PriorityQueue<>(
+            (a, b) -> {
+                int sumA = a.x + a.y;
+                int sumB = b.x + b.y;
+                if (sumA != sumB)
+                    return sumA - sumB;
+                else
+                    return a.x - b.x;
+            }
+        );
 
         
         int n = Integer.parseInt(st.nextToken());
