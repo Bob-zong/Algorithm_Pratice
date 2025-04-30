@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.PriorityQueue;
 
 public class Main {    
-    public static final int MAX_N = 100000;
+    public static final int MAX_N = 200000;
     
     // 변수 선언
     public static int n;
