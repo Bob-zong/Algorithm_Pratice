@@ -1,0 +1,45 @@
+import java.util.*;
+import java.io.*;
+
+class Pair implements Comparable<Pair> {
+    int x, y;
+
+    public Pair(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public int compareTo(Pair p) {
+        return (this.x + this.y) - (p.x + p.y);
+    }
+
+}
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+
+        
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+
+        for(int i = 0; i < n; i++){
+            st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
+
+            pq.add(new Pair(x, y));
+        }
+
+        for(int i = 0; i < m; i++){
+            Pair curr = pq.poll();
+            // System.out.print(curr.x);
+            pq.add(new Pair(curr.x+2, curr.y+2));
+        }
+
+        Pair curr = pq.poll();
+        System.out.print(curr.x + " " + curr.y);
+    }
+}
