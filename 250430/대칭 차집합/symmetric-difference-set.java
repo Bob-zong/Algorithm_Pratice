@@ -14,7 +14,7 @@ public class Main {
         int[] aArr = new int[a];
         int[] bArr = new int[b];
         HashSet<Integer> aSet = new HashSet<>();
-        HashSet<Integer> bSet = new HashSet<>();
+        // HashSet<Integer> bSet = new HashSet<>();
 
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < a; i++){
@@ -24,19 +24,16 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < b; i++){
             bArr[i] = Integer.parseInt(st.nextToken());
-            bSet.add(bArr[i]);
         }
 
 
-        for(int i = 0; i < b; i++) {
-            aSet.remove(bArr[i]);
-        }
-        
-        for(int i = 0; i < a; i++){
-            bSet.remove(aArr[i]);
+        int ans = a + b;
+        for(int i = 0; i < b; i++){
+            if(aSet.contains(bArr[i]))
+                ans -= 2;
         }
 
-        System.out.print(aSet.size() + bSet.size());
+        System.out.print(ans);
 
 
         
