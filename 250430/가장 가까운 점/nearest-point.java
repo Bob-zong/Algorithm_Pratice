@@ -11,9 +11,14 @@ class Pair implements Comparable<Pair> {
 
     @Override
     public int compareTo(Pair p) {
-        return (this.x + this.y) - (p.x + p.y);
-    }
+        int thisSum = this.x + this.y;
+        int otherSum = p.x + p.y;
 
+        if (thisSum != otherSum)
+            return thisSum - otherSum;
+        else
+            return this.x - p.x;
+    }
 }
 public class Main {
     public static void main(String[] args) throws IOException {
