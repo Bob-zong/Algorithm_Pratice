@@ -6,8 +6,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         HashSet<Integer> hs1 = new HashSet<>();
-        HashSet<Integer> hs2 = new HashSet<>();
-        
+        // HashSet<Integer> hs2 = new HashSet<>();
+        StringBuilder sb = new StringBuilder();
         
         int n1 = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
@@ -25,12 +25,12 @@ public class Main {
 
         for(int i = 0; i < n2; i++){
             if(!hs1.contains(arr2[i]))
-                System.out.print("0 ");
+                sb.append(0).append(" ");
             else
-                System.out.print("1 ");
+                sb.append(1).append(" ");
         }
 
-
+        System.out.print(sb);
 
         
         
