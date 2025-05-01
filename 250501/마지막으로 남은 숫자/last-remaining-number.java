@@ -29,7 +29,9 @@ public class Main {
                 pq.add(result);
                         
         }
-
-        System.out.print(pq.size());
+        if(pq.size() == 0) 
+            System.out.print(-1);
+        else
+            System.out.print(pq.size());
     }
 }
