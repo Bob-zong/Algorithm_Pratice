@@ -27,7 +27,7 @@ public class Main {
             sum += answer[k];
 
             int min = pq.peek();
-            maxAvg = Math.max(maxAvg, ((sum - min) / (n - k)));
+            maxAvg = Math.max(maxAvg, ((float)(sum - min) / (n - k)));
             
         }
         
