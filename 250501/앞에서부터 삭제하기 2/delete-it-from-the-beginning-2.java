@@ -19,17 +19,16 @@ public class Main {
             answer[i] = Integer.parseInt(st.nextToken());
 
         float maxAvg = 0;
+        int sum = answer[n];
+        pq.add(answer[n]);
 
-        for(int k = 1; k <= n-2; k++){
-            int sum = 0;
-            pq = new PriorityQueue<>();
-            for(int i = k+1; i <= n; i++){
-                int val = answer[i];
-                sum += val;
-                pq.add(val);
-            }
-            sum -= pq.poll();
-            maxAvg = Math.max(maxAvg, (float)(sum / pq.size()));
+        for(int k = n - 1; k >= 1; k--) {
+            pq.add(answer[k]);
+            sum += answer[k];
+
+            int min = pq.peek();
+            maxAvg = Math.max(maxAvg, ((sum - min) / (n - k)));
+            
         }
         
         System.out.printf("%.2f", maxAvg);
