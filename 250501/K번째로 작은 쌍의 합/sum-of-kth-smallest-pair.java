@@ -1,121 +1,72 @@
-// import java.util.*;
-// import java.io.*;
+import java.util.Scanner;
+import java.util.PriorityQueue;
+import java.util.Arrays;
 
-// public class Main {
-    
-//     public static void main(String[] args) throws IOException {
-//         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//         StringTokenizer st = new StringTokenizer(br.readLine());
-//         PriorityQueue<Integer> pq = new PriorityQueue<>();
+class Tuple implements Comparable<Tuple> {
+    int pairSum, idx1, idx2;
 
-//         int n, m, k;
-
-//         n = Integer.parseInt(st.nextToken());
-//         m = Integer.parseInt(st.nextToken());
-//         k = Integer.parseInt(st.nextToken());
-
-//         int[] arr1 = new int[n];
-//         int[] arr2 = new int[m];
-
-//         st= new StringTokenizer(br.readLine());
-//         for(int i = 0; i < n; i++)
-//             arr1[i] = Integer.parseInt(st.nextToken());
-//         st = new StringTokenizer(br.readLine());
-//         for(int i = 0; i < m; i++)
-//             arr2[i] = Integer.parseInt(st.nextToken());
-
-//         Arrays.sort(arr1);
-//         Arrays.sort(arr2);
-
-//         int cnt = 0;
-//         int idx1 = 0 , idx2 = 0;
-//         pq.add(arr1[0] + arr2[0]);
-
-//         while(cnt < k) {
-//             int currSum = pq.poll();
-//             cnt++;
-
-//             if(cnt == k)
-//                 break;
-            
-            
-//         }
-//     }
-// }
-import java.util.*;
-import java.io.*;
-
-class Pair implements Comparable<Pair> {
-    int sum, i, j;
-
-    public Pair(int sum, int i, int j) {
-        this.sum = sum;
-        this.i = i;
-        this.j = j;
+    public Tuple(int pairSum, int idx1, int idx2) {
+        this.pairSum = pairSum;
+        this.idx1 = idx1;
+        this.idx2 = idx2;
     }
 
-    public int compareTo(Pair o) {
-        return this.sum - o.sum;
+    @Override
+    public int compareTo(Tuple t) {
+        if(this.pairSum != t.pairSum)
+            return this.pairSum - t.pairSum;  // pairSum 기준 오름차순 정렬
+        else if(this.idx1 != t.idx1)
+            return this.idx1 - t.idx1;        // idx1 기준 오름차순 정렬
+        else
+            return this.idx2 - t.idx2;        // idx2 기준 오름차순 정렬
     }
 }
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    public static final int MAX_NUM = 100000;
+    
+    // 변수 선언
+    public static int n, m, k;
+    
+    public static int[] arr1 = new int[MAX_NUM];
+    public static int[] arr2 = new int[MAX_NUM];
+    public static PriorityQueue<Tuple> pq = new PriorityQueue<>();
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // 입력:
+        n = sc.nextInt();
+        m = sc.nextInt();
+        k = sc.nextInt();
+        for(int i = 0; i < n; i++)
+            arr1[i] = sc.nextInt();
 
-        int[] A = new int[N];
-        int[] B = new int[M];
+        for(int i = 0; i < m; i++)
+            arr2[i] = sc.nextInt();
 
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++)
-            A[i] = Integer.parseInt(st.nextToken());
+        // 주어진 배열을 정렬해줍니다.
+        Arrays.sort(arr1, 0, n);
+        Arrays.sort(arr2, 0, m);
+        
+        // 처음에는 n개의 원소에 대해 각각 
+        // 두 번째 수열의 첫 번째 원소를 대응시켜줍니다.
+        for(int i = 0; i < n; i++)
+            pq.add(new Tuple(arr1[i] + arr2[0], i, 0));
+        
+        // 1번부터 k - 1번까지 합이 작은 쌍을 골라줍니다.
+        for(int i = 0; i < k - 1; i++) {
+            Tuple bestT = pq.poll();
+            int idx1 = bestT.idx1;
+            int idx2 = bestT.idx2;
 
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < M; i++)
-            B[i] = Integer.parseInt(st.nextToken());
-
-        Arrays.sort(A);
-        Arrays.sort(B);
-
-        PriorityQueue<Pair> pq = new PriorityQueue<>();
-        boolean[][] visited = new boolean[N][M];
-
-        pq.add(new Pair(A[0] + B[0], 0, 0));
-        visited[0][0] = true;
-
-        int count = 0;
-        while (!pq.isEmpty()) {
-            Pair curr = pq.poll();
-            count++;
-
-            if (count == K) {
-                System.out.println(curr.sum);
-                break;
-            }
-
-            if (curr.i + 1 < N && !visited[curr.i + 1][curr.j]) {
-                pq.add(new Pair(A[curr.i + 1] + B[curr.j], curr.i + 1, curr.j));
-                visited[curr.i + 1][curr.j] = true;
-            }
-
-            if (curr.j + 1 < M && !visited[curr.i][curr.j + 1]) {
-                pq.add(new Pair(A[curr.i] + B[curr.j + 1], curr.i, curr.j + 1));
-                visited[curr.i][curr.j + 1] = true;
-            }
+            // 만약 첫 번째 수열의 idx1번째 원소와 더 매칭할 두 번째 수열의 원소가 남아있다면
+            // 우선순위 큐에 넣어줍니다.
+            idx2++;
+            if(idx2 < m)
+                pq.add(new Tuple(arr1[idx1] + arr2[idx2], idx1, idx2));
         }
+
+        // k번째 합을 가져옵니다.
+        System.out.print(pq.peek().pairSum);
     }
 }
-
-
-// 우선 순위 q를 두개 만들어서
-// 각 q에서 최소값을 뽑아
-// 그다음에 그 두개를 더해서 쌍을 만들어서 넣어.
-
-// 그리고 각 우선순위 q에서 peek 값을 체크한다음 두 개 더해서 비교해봐.
-// 10^3 * 10 ^ 2 1024 -> 1000
-// nlogn은 십만일 때 괜찮다. 
