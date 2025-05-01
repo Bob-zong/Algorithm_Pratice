@@ -22,7 +22,7 @@ public class Main {
 
         for(int k = 1; k <= n-2; k++){
             int sum = 0;
-            pq.clear();
+            pq = new PriorityQueue<>();
             for(int i = k+1; i <= n; i++){
                 int val = answer[i];
                 sum += val;
