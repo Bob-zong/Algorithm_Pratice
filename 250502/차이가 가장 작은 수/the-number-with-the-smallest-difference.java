@@ -14,39 +14,25 @@ public class Main {
 
         for(int i = 0; i < n; i++){
             int num = Integer.parseInt(br.readLine());
+
+            
+            Integer nextValue = s.ceiling(num-m);
+            Integer prevValue = s.floor(num+m);
+
+            if(nextValue != null) {
+                int diff = Math.abs(nextValue - num);
+                if(diff < minDiff && diff >= m)
+                    minDiff = diff; 
+            }
+
+            if(prevValue != null) {
+                int diff = Math.abs(prevValue - num);
+                // System.out.println(diff);
+                if(diff < minDiff && diff >= m)
+                    minDiff = diff; 
+            }
             s.add(num);
             
-            Integer nextValue = s.higher(num);
-            Integer prevValue = s.lower(num);
-
-            if(nextValue != null) {
-                int diff = Math.abs(nextValue - num);
-                if(diff < minDiff && diff >= m)
-                    minDiff = diff; 
-            }
-
-            if(prevValue != null) {
-                int diff = Math.abs(prevValue - num);
-                // System.out.println(diff);
-                if(diff < minDiff && diff >= m)
-                    minDiff = diff; 
-            }
-
-            nextValue = s.ceiling(num-3);
-            prevValue = s.floor(num + 3);
-
-            if(nextValue != null) {
-                int diff = Math.abs(nextValue - num);
-                if(diff < minDiff && diff >= m)
-                    minDiff = diff; 
-            }
-
-            if(prevValue != null) {
-                int diff = Math.abs(prevValue - num);
-                // System.out.println(diff);
-                if(diff < minDiff && diff >= m)
-                    minDiff = diff; 
-            }
         }
         if(minDiff != Integer.MAX_VALUE)
             System.out.print(minDiff);
