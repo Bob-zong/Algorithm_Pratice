@@ -20,7 +20,7 @@ public class Main {
                 s.add(num);
                 cnt++;
             }else{
-                if(s.lower(num) != null && num - s.lower(num) > 0){
+                if(s.lower(num) != null && num - s.lower(num) > 1){
                     s.add(num-1);
                     cnt++;
                 }
