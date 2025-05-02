@@ -32,8 +32,8 @@ public class Main {
                     minDiff = diff; 
             }
 
-            Integer nextValue = s.ceiling(num-3);
-            Integer prevValue = s.floor(num + 3);
+            nextValue = s.ceiling(num-3);
+            prevValue = s.floor(num + 3);
 
             if(nextValue != null) {
                 int diff = Math.abs(nextValue - num);
