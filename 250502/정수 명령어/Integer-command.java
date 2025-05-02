@@ -13,7 +13,7 @@ public class Main {
 
         for(int t = 0; t < T; t++) {
             int k = Integer.parseInt(br.readLine());
-
+            ts.clear();
             for(int i = 0; i < k; i++) {
                 st = new StringTokenizer(br.readLine());
 
