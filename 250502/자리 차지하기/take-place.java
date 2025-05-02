@@ -5,31 +5,28 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        TreeSet<Integer> s = new TreeSet<>();
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());  // 사람 수
+        int M = Integer.parseInt(st.nextToken());  // 좌석 수
+
+        TreeSet<Integer> seats = new TreeSet<>();
+        for (int i = 1; i <= M; i++)
+            seats.add(i);  // 모든 좌석 초기화
 
         st = new StringTokenizer(br.readLine());
+        int count = 0;
 
-        int cnt = 0;
-        for(int i = 1; i <= n; i++)
-            s.add(i);
+        for (int i = 0; i < N; i++) {
+            int limit = Integer.parseInt(st.nextToken());
+            Integer seat = seats.floor(limit);  // 가장 가까운 좌석 찾기
 
-        for(int i = 0; i < n; i++){
-            int num = Integer.parseInt(st.nextToken());
+            if (seat == null)
+                break;  // 더 이상 앉을 수 없음
 
-            Integer seat = s.floor(num);
-            if(seat != null){
-                s.remove(num);
-                cnt++;
-            }
-                
-            else
-                break;   
-            
-        }       
+            seats.remove(seat);  // 좌석 배정
+            count++;
+        }
 
-        System.out.print(cnt);
+        System.out.println(count);
     }
 }
