@@ -13,22 +13,20 @@ public class Main {
         st = new StringTokenizer(br.readLine());
 
         int cnt = 0;
+        for(int i = 1; i <= n; i++)
+            s.add(i);
 
         for(int i = 0; i < n; i++){
             int num = Integer.parseInt(st.nextToken());
-            if(!s.contains(num)){
-                s.add(num);
+
+            Integer seat = s.floor(num);
+            if(seat != null){
+                s.remove(num);
                 cnt++;
-            }else{
-                if(s.lower(num) != null && num - s.lower(num) > 1){
-                    s.add(num-1);
-                    cnt++;
-                }
-                else{
-                    break;
-                }
             }
                 
+            else
+                break;   
             
         }       
 
