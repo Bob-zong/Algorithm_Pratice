@@ -31,6 +31,22 @@ public class Main {
                 if(diff < minDiff && diff >= m)
                     minDiff = diff; 
             }
+
+            Integer nextValue = s.ceiling(num-3);
+            Integer prevValue = s.floor(num + 3);
+
+            if(nextValue != null) {
+                int diff = Math.abs(nextValue - num);
+                if(diff < minDiff && diff >= m)
+                    minDiff = diff; 
+            }
+
+            if(prevValue != null) {
+                int diff = Math.abs(prevValue - num);
+                // System.out.println(diff);
+                if(diff < minDiff && diff >= m)
+                    minDiff = diff; 
+            }
         }
         if(minDiff != Integer.MAX_VALUE)
             System.out.print(minDiff);
