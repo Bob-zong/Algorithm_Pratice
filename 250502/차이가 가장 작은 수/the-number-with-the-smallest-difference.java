@@ -20,7 +20,7 @@ public class Main {
             Integer prevValue = s.lower(num);
 
             if(nextValue != null) {
-                int diff = nextValue - num;
+                int diff = Math.abs(nextValue - num);
                 if(diff < minDiff && diff >= m)
                     minDiff = diff; 
             }
