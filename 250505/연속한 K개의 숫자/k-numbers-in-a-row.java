@@ -38,7 +38,7 @@ public class Main {
         
         int ans = Integer.MAX_VALUE;
 
-        for(int i = 1; i < N - K + 1; i++) {
+        for(int i = 1; i <= N - K + 1; i++) {
             int diff = K - getSum(i, i + K - 1);
             ans = Math.min(ans, diff);
         }
