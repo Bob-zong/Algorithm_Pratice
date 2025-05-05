@@ -58,7 +58,7 @@ public class Main {
             int c = prefixSumC[r2][c2] - prefixSumC[r2][c1-1] - prefixSumC[r1-1][c2] + prefixSumC[r1-1][c1-1];
 
         
-            sb.append(a).append(" ").append(b).append(" ").append(c).append("\n");
+            sb.append(String.format("%d %d %d\n", a, b, c));
         
         }
         System.out.print(sb);
