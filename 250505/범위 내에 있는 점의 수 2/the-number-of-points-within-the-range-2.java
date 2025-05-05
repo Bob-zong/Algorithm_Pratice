@@ -8,7 +8,7 @@ public class Main {
     public static int[] prefixSum;
 
     public static int getSum(int s, int e) {
-        return ( prefixSum[e] - prefixSum[s-1] );
+        return ( prefixSum[e] - prefixSum[s] + answer[s] );
     }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
