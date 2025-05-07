@@ -35,7 +35,7 @@ public class Main {
                 R[i] = R[i+1] + 1;
             else R[i] = R[i+1];
         }
-        int ans = 0;
+        long ans = 0;
         // for(int i : L)
         //     System.out.print(i);
         
