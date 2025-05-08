@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
     public static int n, q;
 
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -28,10 +29,24 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int x1 = Integer.parseInt(st.nextToken());
             int x2 = Integer.parseInt(st.nextToken());
+            
+            int start;
+            int end;
 
-            int start = s.ceiling(x1);
-            int end = s.floor(x2);
-            int num = map.get(end) - map.get(start) + 1;
+            if(s.ceiling(x1) != null) {
+                start = s.ceiling(x1);
+            }else{
+                start = s.last();
+            }
+ 
+            if(s.floor(x2) != null){
+                end = s.floor(x2);
+            }else{
+                end = s.first();
+            }
+            int num = 0;
+            if(x2 >= end)
+                num = map.get(end) - map.get(start) + 1;
             sb.append(num).append("\n");
             
         }
