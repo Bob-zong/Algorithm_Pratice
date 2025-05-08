@@ -45,7 +45,7 @@ public class Main {
                 end = s.first();
             }
             int num = 0;
-            if(x2 >= end)
+            if(x2 >= end && x1 <= start)
                 num = map.get(end) - map.get(start) + 1;
             sb.append(num).append("\n");
             
