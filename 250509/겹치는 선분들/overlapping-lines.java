@@ -70,17 +70,26 @@ public class Main {
 
         int sum = 0;
         int ans = 0;
+        // int prevX = 0;
+
         for(int i = 0; i < 2 * n; i++) {
+            
             int x = p.get(i).x;
             int v = p.get(i).v;
+            // if(x == prevX)
+            //     continue;
 
-            sum += v;
             // System.out.println(sum);
-            if(sum >= k)
-                ans += 1;
+            if(sum >= k){
+                int prevX = p.get(i-1).x;
+                ans += x - prevX;
+            }
+                // ans += Math.abs(x-prevX)
+            sum += v;
         }
 
-        
+        // for(Point i : p)
+        //     System.out.println(i.x);
         System.out.print(ans);
 
     }
