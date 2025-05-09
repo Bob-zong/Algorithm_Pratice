@@ -75,7 +75,7 @@ public class Main {
             int v = p.get(i).v;
 
             sum += v;
-            System.out.println(sum);
+            // System.out.println(sum);
             if(sum >= k)
                 ans += 1;
         }
