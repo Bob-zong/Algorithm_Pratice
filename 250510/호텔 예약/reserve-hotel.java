@@ -34,7 +34,7 @@ public class Main {
             x2 = Integer.parseInt(st.nextToken());
 
             points.add(new Point(x1, +1, i));
-            points.add(new Point(x2, -1, i));
+            points.add(new Point(x2+1, -1, i));
         }
         int ans = 0;
         int sum = 0;
@@ -45,6 +45,8 @@ public class Main {
             int v = points.get(i).v;
 
             sum += v;
+            
+                
             ans = Math.max(ans, sum);
             
             
