@@ -19,7 +19,7 @@ public class Main {
             R[i] = cnt;    
         }
 
-        int ans = 0;
+        long ans = 0;
 
         for(int i = 1; i < len; i++){
             if(answer[i] == '(' && answer[i-1] == '(')
