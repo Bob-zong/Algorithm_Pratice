@@ -1,47 +1,39 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    static class Bomb implements Comparable<Bomb> {
-        int number;
-        int index;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
 
-        public Bomb(int number, int index) {
-            this.number = number;
-            this.index = index;
+        int[] arr = new int[n];
+        int[] R = new int[n];
+        HashMap<Integer, Integer> latestIndex = new HashMap<>(); 
+
+        for(int i = 0; i < n; i++)
+            arr[i] = Integer.parseInt(br.readLine());
+
+        for(int i = n - 1; i >= 0; i--) {
+            if(!latestIndex.containsKey(arr[i]))
+                R[i] = -1;
+            else
+                R[i] = latestIndex.get(arr[i]);
+            
+            latestIndex.put(arr[i], i);
         }
 
-        @Override
-        public int compareTo(Bomb other) {
-            return Integer.compare(other.number, this.number); // 내림차순
-        }
-    }
+        int ans = -1;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-
-        List<Bomb> bombs = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            int num = sc.nextInt();
-            bombs.add(new Bomb(num, i));
+        for(int i = 0; i < n; i++) {
+            if(R[i] != -1 && R[i] - i <= k)
+                ans = Math.max(ans, arr[i]);
         }
 
-        Collections.sort(bombs); // number 기준 내림차순 정렬
-
-        int answer = -1;
-
-        for (int i = 1; i < bombs.size(); i++) {
-            if (bombs.get(i).number == bombs.get(i - 1).number) {
-                int dist = Math.abs(bombs.get(i).index - bombs.get(i - 1).index);
-                if (dist <= k) {
-                    answer = bombs.get(i).number;
-                    break;
-                }
-            }
-        }
-
-        System.out.println(answer);
+        System.out.print(ans);
+        // HashMap<Integer, ArrayList>
+        // 
     }
 }
