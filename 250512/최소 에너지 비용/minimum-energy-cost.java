@@ -8,7 +8,7 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
         
-        int[] moveCost = new int[n];
+        long[] moveCost = new long[n];
 
         st = new StringTokenizer(br.readLine());
         
@@ -18,7 +18,7 @@ public class Main {
 
         st = new StringTokenizer(br.readLine());
 
-        int[] energyCost = new int[n];
+        long[] energyCost = new long[n];
 
         for(int i = 0; i < n; i++)
             energyCost[i] = Integer.parseInt(st.nextToken());
