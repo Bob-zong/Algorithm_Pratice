@@ -25,8 +25,8 @@ public class Main {
 
         long sumCost = 0;
 
-        long[] R = new int[n];
-        long[] distArr = new int[n];
+        long[] R = new long[n];
+        long[] distArr = new long[n];
         // 뒤에서 부터 가장 싼 에너지 채우는 비용을 채워넣어놓자.
         // 5 2 1 4 4-> 에너지 충전에 최소값을 기록해놔. 5 2 4 -> 이렇게 기록이 되어 있겠지.
         // n+1 인덱스랑 비교해서 현재 값보다 더 작다? 그럼 본인 할당치만 채워
