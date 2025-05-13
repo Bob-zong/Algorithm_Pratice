@@ -19,7 +19,7 @@ public class Main {
             answer[i] = Integer.parseInt(st.nextToken());
 
         int ans = MAX_NUM;
-        int sumVal = 0;
+        long sumVal = 0;
 
         int j = 1;
 
