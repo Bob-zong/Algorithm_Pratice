@@ -11,36 +11,29 @@ public class Main {
 
         n = Integer.parseInt(st.nextToken());
         s = Integer.parseInt(st.nextToken());
-        int[] answer = new int[n+1];
+        int[] answer = new int[n + 1];
 
         st = new StringTokenizer(br.readLine());
-
-        for(int i = 1; i <= n; i++)
+        for (int i = 1; i <= n; i++)
             answer[i] = Integer.parseInt(st.nextToken());
 
         int ans = MAX_NUM;
         long sumVal = 0;
-
         int j = 1;
 
-        for(int i = 1; i <= n; i++) {
-                
-            while(j <= n && sumVal + (long)answer[j] < s) {
-                sumVal += (long)answer[j];
+        for (int i = 1; i <= n; i++) {
+            while (j <= n && sumVal < s) {
+                sumVal += answer[j];
                 j++;
             }
-            
-            ans = Math.min(ans, j-i+1);
-            
 
-            sumVal -= (long)answer[i];
+            if (sumVal >= s) {
+                ans = Math.min(ans, j - i);
+            }
+
+            sumVal -= answer[i];
         }
 
-        if(ans == MAX_NUM)
-            System.out.print(-1);
-        else System.out.print(ans);
-        
-
-        // Please write your code here.
+        System.out.println(ans == MAX_NUM ? -1 : ans);
     }
 }
