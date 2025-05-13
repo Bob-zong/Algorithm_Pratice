@@ -1,38 +1,50 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Main {
+    public static final int mod = 7;
+    public static int[] maxIdx = new int[mod];
+    public static int[] minIdx = new int[mod];
+    public static final int INT_MIN = -(int)(1e9);
+    public static final int INT_MAX = (int)(1e9);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	static BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-	static StringTokenizer st;
-	static int n, arr[], modSum[], sum[], res;
-	static Map<Integer, Integer> map = new HashMap<>();
+        int n = Integer.parseInt(br.readLine());
 
-	public static void main(String[] args) throws IOException {
-		st = new StringTokenizer(bf.readLine());
-		n = Integer.parseInt(st.nextToken());
+        int[] answer = new int[n+1];
+        int[] prefixSum = new int[n+1];
 
-		arr = new int[n+1];
-		modSum = new int[n+1];
+        // 3 8 9 15 17 17 20
+        // 3 5 1 6  2  0  3
 
-		for (int i = 1; i <= n; i++) {
-			st = new StringTokenizer(bf.readLine());
-			arr[i] = Integer.parseInt(st.nextToken());
-		}
+        for(int i = 1; i <= n; i++) {
+            answer[i] = (Integer.parseInt(br.readLine()) % 7) ;
+        }
 
-		solution();
-	}
+        prefixSum[0] = 0;
 
-	static void solution() {
-		for(int i=1; i<=n; i++){
-			modSum[i] = (modSum[i-1] + arr[i]) % 7;
-			map.put(modSum[i], i);
-		}
+        for(int i = 0; i < mod; i++){
+            maxIdx[i] = INT_MIN;
+            minIdx[i] = INT_MAX;
+        }
+        for(int i = 1; i <= n; i++) {
+            prefixSum[i] = (prefixSum[i-1] + answer[i]) % 7;
+            maxIdx[prefixSum[i]] = Math.max(maxIdx[prefixSum[i]], i);
+            minIdx[prefixSum[i]] = Math.min(minIdx[prefixSum[i]], i);
 
-		for(int i=1; i<=n; i++){
-			res = Math.max(res, map.get(modSum[i])-i);
-		}
+        }
+        
+        int ans = 0;
+        for(int i = 0; i < mod; i++) {
+            ans = Math.max(ans, maxIdx[i] - minIdx[i]);
+        }
+        // O(N)처리 NlogN 까지도 괜춘
+        System.out.print(ans);
 
-		System.out.println(res);
-	}
+        
+
+
+
+    }
 }
