@@ -11,7 +11,7 @@ public class Main {
 
         n = Integer.parseInt(st.nextToken());
         s = Integer.parseInt(st.nextToken());
-        long[] answer = new int[n+1];
+        int[] answer = new int[n+1];
 
         st = new StringTokenizer(br.readLine());
 
@@ -25,15 +25,15 @@ public class Main {
 
         for(int i = 1; i <= n; i++) {
                 
-            while(j <= n && sumVal + answer[j] < s) {
-                sumVal += answer[j];
+            while(j <= n && sumVal + (long)answer[j] < s) {
+                sumVal += (long)answer[j];
                 j++;
             }
             
             ans = Math.min(ans, j-i+1);
             
 
-            sumVal -= answer[i];
+            sumVal -= (long)answer[i];
         }
 
         if(ans == MAX_NUM)
