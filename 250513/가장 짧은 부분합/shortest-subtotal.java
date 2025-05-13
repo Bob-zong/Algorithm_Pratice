@@ -11,7 +11,7 @@ public class Main {
 
         n = Integer.parseInt(st.nextToken());
         s = Integer.parseInt(st.nextToken());
-        int[] answer = new int[n+1];
+        long[] answer = new int[n+1];
 
         st = new StringTokenizer(br.readLine());
 
