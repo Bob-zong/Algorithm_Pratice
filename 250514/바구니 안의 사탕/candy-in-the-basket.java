@@ -30,10 +30,16 @@ public class Main {
         }
 
         long ans = 0;
-
-        for(int i = k; i <= MAX_POS - k; i++) {
-            ans = Math.max(ans, (prefixSum[i+k] - prefixSum[i-k] + candyPos[i-k]));
+        if(k >= MAX_POS){
+            ans = prefixSum[MAX_POS];
         }
+            
+        else{
+            for(int i = k; i <= MAX_POS - k; i++) {
+                ans = Math.max(ans, (prefixSum[i+k] - prefixSum[i-k] + candyPos[i-k]));
+            }  
+        }
+        
         // 0 1 2 3 4 5 6 7;
 
         System.out.print(ans);
