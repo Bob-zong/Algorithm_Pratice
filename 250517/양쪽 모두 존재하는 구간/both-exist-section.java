@@ -44,6 +44,8 @@ public class Main {
                 inMap.put(answer[j+1], inMap.getOrDefault(answer[j+1], 0) + 1);
                 outMap.put(answer[j+1], outMap.getOrDefault(answer[j+1], 0) - 1);
                 j++;
+                if(outMap.getOrDefault(answer[i], 0) == 0)
+                    outMap.remove(answer[i]);
             }
 
             if(inMap.size() == m && outMap.size() == m){
@@ -51,15 +53,11 @@ public class Main {
                 // System.out.println(j + " " + i);
             }
                 
-
-            
             inMap.put(answer[i], inMap.getOrDefault(answer[i], 0) - 1);
             outMap.put(answer[i], outMap.getOrDefault(answer[i], 0) + 1);
             
             if(inMap.getOrDefault(answer[i], 0) == 0)
                 inMap.remove(answer[i]);
-            if(outMap.getOrDefault(answer[i], 0) == 0)
-                outMap.remove(answer[i]);
             
         }
 
