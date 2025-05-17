@@ -44,7 +44,7 @@ public class Main {
                 inMap.put(answer[j+1], inMap.getOrDefault(answer[j+1], 0) + 1);
                 outMap.put(answer[j+1], outMap.getOrDefault(answer[j+1], 0) - 1);
                 j++;
-                if(outMap.getOrDefault(answer[i], 0) == 0)
+                if(outMap.getOrDefault(answer[j], 0) == 0)
                     outMap.remove(answer[i]);
             }
 
