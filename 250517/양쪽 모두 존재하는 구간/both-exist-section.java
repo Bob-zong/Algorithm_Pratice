@@ -10,15 +10,15 @@ public class Main {
     public static HashMap<Integer, Integer> inMap = new HashMap<>();
     public static HashMap<Integer, Integer> outMap = new HashMap<>();
 
-    public static boolean canMove(int j) {
-        if(j+1 > n)
-            return false;
+    // public static boolean canMove(int j) {
+    //     if(j+1 > n)
+    //         return false;
 
-        if(outMap.getOrDefault(answer[j+1], 0) < 2)
-            return false;
+    //     if(outMap.getOrDefault(answer[j+1], 0) < 2)
+    //         return false;
         
-        return true;
-    }
+    //     return true;
+    // }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -40,7 +40,7 @@ public class Main {
 
         for(int i = 1; i <= n; i++) {
 
-            while(canMove(j)) {
+            while(j+1 < n && inMap.size() < m) {
                 inMap.put(answer[j+1], inMap.getOrDefault(answer[j+1], 0) + 1);
                 outMap.put(answer[j+1], outMap.getOrDefault(answer[j+1], 0) - 1);
                 if(outMap.getOrDefault(answer[j+1], 0) <= 0)
@@ -50,8 +50,7 @@ public class Main {
             }
 
             if(inMap.size() == m && outMap.size() == m){
-                int outSize = Math.min(j - i + 1, n - (j - i + 1));
-                ans = Math.min(ans, outSize);
+                ans = Math.min(ans, j - i + 1);
                 // System.out.println(j + " " + i);
             }
 
