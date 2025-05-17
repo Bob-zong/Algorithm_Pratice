@@ -30,8 +30,10 @@ public class Main {
                 j++;
             }
 
-            if(countArr[1] >= k)
-                ans = Math.min(ans, j - i + 1);
+            if(countArr[1] < k)
+                break;
+                
+            ans = Math.min(ans, j - i + 1);
 
             countArr[answer[i]]--;
         }
