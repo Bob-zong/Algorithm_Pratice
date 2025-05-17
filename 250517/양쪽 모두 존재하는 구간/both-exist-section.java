@@ -50,7 +50,7 @@ public class Main {
             }
 
             if(inMap.size() == m && outMap.size() == m){
-                int outSize = Math.max(j - i + 1, n - (j - i + 1));
+                int outSize = Math.min(j - i + 1, n - (j - i + 1));
                 ans = Math.min(ans, outSize);
                 // System.out.println(j + " " + i);
             }
