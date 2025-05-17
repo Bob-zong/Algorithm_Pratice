@@ -40,18 +40,17 @@ public class Main {
 
         for(int i = 1; i <= n; i++) {
 
-            while(j+1 < n && inMap.size() < m) {
+            while(j+1 <= n && inMap.size() < m) {
                 inMap.put(answer[j+1], inMap.getOrDefault(answer[j+1], 0) + 1);
                 outMap.put(answer[j+1], outMap.getOrDefault(answer[j+1], 0) - 1);
-                if(outMap.getOrDefault(answer[j+1], 0) <= 0)
+                if(outMap.getOrDefault(answer[j+1], 0) == 0)
                     outMap.remove(answer[j+1]);
                 
                 j++;
             }
 
             if(inMap.size() == m && outMap.size() == m){
-                int size = Math.min(j - i + 1, n - (j - i + 1));
-                ans = Math.min(ans, size);
+                ans = Math.min(ans, j - i + 1);
                 // System.out.println(j + " " + i);
             }
 
@@ -59,8 +58,12 @@ public class Main {
             inMap.put(answer[i], inMap.getOrDefault(answer[i], 0) - 1);
             outMap.put(answer[i], outMap.getOrDefault(answer[i], 0) + 1);
             
-            if(inMap.getOrDefault(answer[i], 0) <= 0)
+            if(inMap.getOrDefault(answer[i], 0) == 0)
                 inMap.remove(answer[i]);
+            
+            // if(i == 6){
+            //     System.out.print(inMap.size() + " "+ outMap.size());
+            // }
             
         }
 
