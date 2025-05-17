@@ -43,9 +43,10 @@ public class Main {
             while(canMove(j)) {
                 inMap.put(answer[j+1], inMap.getOrDefault(answer[j+1], 0) + 1);
                 outMap.put(answer[j+1], outMap.getOrDefault(answer[j+1], 0) - 1);
+                if(outMap.getOrDefault(answer[j+1], 0) == 0)
+                    outMap.remove(answer[j+1]);
+                
                 j++;
-                if(outMap.getOrDefault(answer[j], 0) == 0)
-                    outMap.remove(answer[j]);
             }
 
             if(inMap.size() == m && outMap.size() == m){
@@ -56,7 +57,7 @@ public class Main {
             inMap.put(answer[i], inMap.getOrDefault(answer[i], 0) - 1);
             outMap.put(answer[i], outMap.getOrDefault(answer[i], 0) + 1);
             
-            if(inMap.getOrDefault(answer[i], 0) == 0)
+            if(inMap.getOrDefault(answer[i], 0) <= 0)
                 inMap.remove(answer[i]);
             
         }
