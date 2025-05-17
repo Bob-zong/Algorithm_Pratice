@@ -35,8 +35,10 @@ public class Main {
 
             countArr[answer[i]]--;
         }
-
-        System.out.print(ans);
+        if(ans = MAX_INT)
+            System.out.print(-1);
+        else
+            System.out.print(ans);
 
     }
 }
