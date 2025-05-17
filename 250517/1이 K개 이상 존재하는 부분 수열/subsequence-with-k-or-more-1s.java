@@ -35,7 +35,7 @@ public class Main {
 
             countArr[answer[i]]--;
         }
-        if(ans = MAX_INT)
+        if(ans == MAX_INT)
             System.out.print(-1);
         else
             System.out.print(ans);
