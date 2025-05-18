@@ -4,7 +4,7 @@ import java.io.*;
 public class Main {
     public static long m;
     
-    public static int binary_search(int target) {
+    public static int binary_search(long target) {
         long left = 1;
         long right = m;
         int cnt = 0;
@@ -32,20 +32,20 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        m = Integer.parseInt(br.readLine());
+        m = Long.parseLong(br.readLine());
 
         st = new StringTokenizer(br.readLine());
 
-        int x1, x2;
+        long x1, x2;
 
-        x1 = Integer.parseInt(st.nextToken());
-        x2 = Integer.parseInt(st.nextToken());
+        x1 = Long.parseLong(st.nextToken());
+        x2 = Long.parseLong(st.nextToken());
 
         int min, max;
 
         min = Integer.MAX_VALUE;
         max = Integer.MIN_VALUE;
-        for(int i = x1; i <= x2; i++) {
+        for(long i = x1; i <= x2; i++) {
             int ans = binary_search(i);
             min = Math.min(min, ans);
             max = Math.max(max, ans);
