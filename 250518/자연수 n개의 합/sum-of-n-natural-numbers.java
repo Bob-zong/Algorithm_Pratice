@@ -6,7 +6,7 @@ public class Main {
 
     public static long binary_search() {
         long left = 1;
-        long right = s;
+        long right = Integer.MAX_VALUE;
         long maxNum = 1;
 
         while(left <= right) {
