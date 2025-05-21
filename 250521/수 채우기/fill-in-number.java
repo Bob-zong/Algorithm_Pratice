@@ -19,23 +19,30 @@ public class Main {
         remain = n % 5;
 // 22 24 26 28
 // 21 23 27 29
-        if(remain % 2 != 0 && remain < 5) {
+        if(n == 1 || n == 3)
+            ans = -1;
+        
+        else if(remain % 2 != 0 && remain < 5) {
             if(fiveCnt != 0)
                 fiveCnt--;
             
             twoCnt = (n - (5 * fiveCnt)) / 2;
+            ans = twoCnt + fiveCnt;
         }
         else if(remain % 2 == 0 && remain > 5){
             if(fiveCnt != 0)
                 fiveCnt--;
             
             twoCnt = (n - (5 * fiveCnt)) / 2;
+            ans = twoCnt + fiveCnt;
         }
         else{
             twoCnt = remain / 2;
+            ans = twoCnt + fiveCnt;
         }
 
-        System.out.print(fiveCnt + twoCnt);
+        
+        System.out.print(ans);
 
 
 
