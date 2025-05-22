@@ -2,23 +2,37 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        ArrayList<Long> answer = new ArrayList<>();
+    public static int n, order;
+    public static int answer = 0;
 
-        int n = Integer.parseInt(br.readLine());
-        int order = Integer.parseInt(br.readLine());
+    public static void binary_search() {
+        int left = 1;
+        int right = n * n;
 
-        for(int i = 1; i <= n; i++){
-            for(int j = 1; j <= n; j++){
-                long mul = i * j;
-                answer.add(mul);
+        while(left <= right) {
+            int mid = (left + right) / 2;
+            long cnt = 0;
+            for(int i = 1; i <= n; i++){
+                cnt += Math.min(n, mid / i);
             }
-                 
+
+            if(cnt >= order) {
+                    right = mid-1;
+                    answer = mid;
+                }
+            else 
+                left = mid+1;
         }
 
-        Collections.sort(answer);
+    }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print(answer.get(order-1));
+        n = Integer.parseInt(br.readLine());
+        order = Integer.parseInt(br.readLine());
+        binary_search();
+        System.out.print(answer);
     }
 }
+
+
