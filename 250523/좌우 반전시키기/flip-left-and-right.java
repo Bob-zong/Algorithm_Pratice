@@ -27,11 +27,12 @@ public class Main {
                 ans++;
                 answer[i - 1] = 1;
                 answer[i] = (answer[i] + 1) % 2;
+                if(i + 1 < n) {
+                    answer[i+1] = (answer[i+1] + 1) % 2;
+            }
             }
 
-            if(i + 1 < n) {
-                answer[i+1] = (answer[i+1] + 1) % 2;
-            }
+            
         }
 
         if(answer[n-1] == 0)
