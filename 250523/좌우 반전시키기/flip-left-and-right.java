@@ -30,13 +30,13 @@ public class Main {
             }
 
             if(i + 1 < n) {
-                answer[i+1] = (answer[i] + 1) % 2;
+                answer[i+1] = (answer[i+1] + 1) % 2;
             }
         }
 
         if(answer[n-1] == 0)
             ans = -1;
-            
+
         System.out.print(ans);
     }
 }
