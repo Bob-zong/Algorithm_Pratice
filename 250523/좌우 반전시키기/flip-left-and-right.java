@@ -14,30 +14,29 @@ public class Main {
 
         st = new StringTokenizer(br.readLine());
 
-        answer = new int[n+1];
+        answer = new int[n];
 
-        for(int i = 1; i <= n; i++){
+        for(int i = 0; i < n; i++){
             answer[i] = Integer.parseInt(st.nextToken());
         }
 
         int ans = 0;
 
-        int idx = 2;
-
-        while(idx < n) {
-            if(answer[idx-1] == 0){
-                answer[idx-1] = (answer[idx-1] + 1) % 2;
-                answer[idx] = (answer[idx] + 1) % 2;
-                answer[idx+1] = (answer[idx+1] + 1) % 2;
+        for(int i = 1; i < n; i++){
+            if(answer[i-1] == 0){
                 ans++;
+                answer[i - 1] = 1;
+                answer[i] = (answer[i] + 1) % 2;
             }
 
-            idx++;
+            if(i + 1 < n) {
+                answer[i+1] = (answer[i] + 1) % 2;
+            }
         }
-        
-        if(answer[n-1] == 0 || answer[n] == 0)
-            ans = -1;
 
+        if(answer[n-1] == 0)
+            ans = -1;
+            
         System.out.print(ans);
     }
 }
