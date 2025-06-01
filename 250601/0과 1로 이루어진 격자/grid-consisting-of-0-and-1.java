@@ -24,12 +24,16 @@ public class Main {
 
         for(int i = n; i >= 1; i--){
             for(int j = n; j >= 1; j--){
-                if(board[i][j] == 1 && cnt % 2 == 0){
+                if(board[i][j] == 1){
                     cnt++;
+
+                    for(int x = 1; x <= i; x++){
+                        for(int y = 1; y <= j; y++){
+                            board[x][y] = 1 - board[x][y]; 
+                        }
+                    }
                 }
-                else if(board[i][j] == 0 && cnt % 2 == 1){
-                    cnt++;
-                }
+                
             }
         }
 
