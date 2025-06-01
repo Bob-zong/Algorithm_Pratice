@@ -15,14 +15,14 @@ public class Main {
 
         for(int i = len-1; i >= 0; i--){
 
-            if(originStr[i] != targetStr[i]){
+            if(originStr[i] != targetStr[i] && cnt % 2 == 0){
                 cnt++;
-                for(int j = i; j >= 0; j--){
-                    if(originStr[j] == 'H'){
-                        originStr[j] = 'G';
-                    }else originStr[j] = 'H';
-                }
             }
+
+            if(originStr[i] == targetStr[i] && cnt % 2 == 1){
+                cnt++;
+            }
+
         }
         System.out.print(cnt);
     }
