@@ -27,6 +27,9 @@ public class Main {
             }
             else{
                 mismatched = false;
+            }
+
+            if(cnt >= 4){
                 ans += cnt / 4;
                 cnt = 0;
             }
