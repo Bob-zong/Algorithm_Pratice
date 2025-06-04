@@ -2,30 +2,37 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static int n;
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        n = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
         String originStr = br.readLine();
         String targetStr = br.readLine();
 
-        char[] origin = originStr.toCharArray();
-        char[] target = targetStr.toCharArray();
-
         int ans = 0;
 
-        for (int i = 0; i < n; i++) {
-            if (origin[i] != target[i]) {
-                ans++;
-                // 최대 4칸까지 고칠 수 있으므로, i부터 i+3까지 다 고쳐버리자
-                for (int j = i; j < i + 4 && j < n; j++) {
-                    origin[j] = target[j];
+        boolean mismatched = false;
+        int cnt = 0;
+
+        for(int i = 0; i < n; i++){
+            
+            if(originStr.charAt(i) != targetStr.charAt(i)) {
+                cnt++;
+                if(!mismatched){
+                    mismatched = true;
+                    ans++;
                 }
             }
+            else{
+                mismatched = false;
+                ans += cnt / 4;
+                cnt = 0;
+            }
+                
         }
+        
 
         System.out.print(ans);
     }
