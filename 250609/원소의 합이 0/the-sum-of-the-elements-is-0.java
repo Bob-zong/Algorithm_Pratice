@@ -51,7 +51,7 @@ public class Main {
             int num = entry.getKey();
 
             if(m2.containsKey(-num))
-                ans++;
+                ans += (entry.getValue() * m2.get(-num));
         }
 
         System.out.print(ans);
