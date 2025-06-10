@@ -7,10 +7,8 @@ public class Main {
     public static int ans = INT_MAX;
 
     public static int n;
-    public static int[] answer = new int[2 * MAX_N];
+    public static int[] num = new int[2 * MAX_N];
     public static boolean[] visited = new boolean[2 * MAX_N];
-
-    public static ArrayList<Integer> arr = new ArrayList<>();
 
     public static void choose(int currNum, int cnt) {
         
@@ -44,11 +42,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokneizer st;
+        StringTokenizer st;
 
         n = Integer.parseInt(br.readLine());
 
-        st = new StringTokneizer(br.readLine());
+        st = new StringTokenizer(br.readLine());
 
         for(int i = 0; i < 2 * n; i++) {
             num[i] = Integer.parseInt(st.nextToken());
