@@ -10,79 +10,53 @@ public class Main {
     public static int[] dy = new int[]{0, 1, 0, -1};
 
     public static int changeDir(int dir, int type) {
-        int result = -1;
-
         if(type == 1){ // /
-            if(dir == 2){ // 하
-                // 좌
-                result = 3;
-            }
-            else if(dir == 0){ // 상
-                // 우
-                result = 1;
-            }
-            else if(dir == 1){ // 우
-                // 상
-                result = 0;
-            }
-            else if(dir == 3){ // 좌
-                // 하
-                result = 2;
-            }
+            if(dir == 0) return 3; // 상 → 우
+            if(dir == 1) return 2; // 우 → 상
+            if(dir == 2) return 1; // 하 → 좌
+            if(dir == 3) return 0; // 좌 → 하
+        } else if(type == 2){ // \
+            if(dir == 0) return 1; // 상 → 좌
+            if(dir == 1) return 0; // 우 → 하
+            if(dir == 2) return 3; // 하 → 우
+            if(dir == 3) return 2; // 좌 → 상
         }
-        else if(type == 2){ // \
-            if(dir == 2){ // 하
-                // 우
-                result = 1;
-            }
-            else if(dir == 0){ // 상
-                // 좌
-                result = 3;
-            }
-            else if(dir == 1){ // 우
-                // 하
-                result = 2;
-            }
-            else if(dir == 3){ // 좌
-                // 상
-                result = 0;
-            }
-        }
-
-        return result;
+        return -1; // 예외 상황
     }
     public static boolean inRange(int x, int y) {
         return (1 <= x && x <= n && 1 <= y && y <= n);
     }
 
     public static int move(int row, int col, int dir) {
-        int cnt = 1;
-        int x = row;
-        int y = col;
-        int currDir = dir;
+    int cnt = 1;
+    int x = row;
+    int y = col;
+    int currDir = dir;
 
-        while(inRange(x, y)) {
-            int nx = x + dx[currDir];
-            int ny = y + dy[currDir];
-            cnt++;
+    if (board[x][y] != 0)
+        currDir = changeDir(dir, board[x][y]);
 
-            if(inRange(nx, ny)) {
-                x = nx;
-                y = ny;
+    while (true) {
+        int nx = x + dx[currDir];
+        int ny = y + dy[currDir];
 
-                if(board[nx][ny] != 0) {
-                    currDir = changeDir(currDir, board[nx][ny]);
-                }
-
-            }
-            else{
-                return cnt;
-            }
+        if (!inRange(nx, ny)) {
+            cnt++; // 마지막 경계 벗어나는 것도 1칸으로 카운트
+            break;
         }
 
-        return cnt;
-        
+        x = nx;
+        y = ny;
+        cnt++;
+
+        if (board[x][y] != 0) {
+            currDir = changeDir(currDir, board[x][y]);
+        }
     }
+
+    return cnt;
+}
+
     
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
