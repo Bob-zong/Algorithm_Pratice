@@ -16,7 +16,7 @@ public class Main {
 
         for(int i = 0; i < n; i++) {
             int num = Integer.parseInt(st.nextToken());
-            int ans = -1;
+            long ans = -1;
             q.add(num);
 
             if(q.size() >= 3){
@@ -26,7 +26,7 @@ public class Main {
                 num2 = q.poll();
                 num3 = q.poll();
 
-                ans = num1 * num2 * num3;
+                ans = (long)num1 * num2 * num3;
 
                 sb.append(ans).append("\n");
 
