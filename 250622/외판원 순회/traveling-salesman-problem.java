@@ -11,30 +11,36 @@ public class Main {
     public static ArrayList<Integer> answer = new ArrayList<>();
     
     public static void calcCost() {
-        int sum = 0;
-        int prev = 0 , curr = 0;
+    int sum = 0;
+    int prev = 1;
+    int curr;
 
-        for(int i = 1; i < answer.size(); i++) {
-            prev = answer.get(i-1);
-            curr = answer.get(i);
+    // 1 -> answer[0]
+    curr = answer.get(0);
+    if (board[prev][curr] == 0) return;
+    sum += board[prev][curr];
 
-            sum += board[prev][curr];
-        }
-        prev = curr;
-        curr = answer.get(0);
-
+    // answer[i-1] -> answer[i]
+    for (int i = 1; i < answer.size(); i++) {
+        prev = answer.get(i - 1);
+        curr = answer.get(i);
+        if (board[prev][curr] == 0) return;
         sum += board[prev][curr];
-
-        ans = Math.min(ans, sum);
-
     }
+
+    // 마지막 -> 1
+    if (board[curr][1] == 0) return;
+    sum += board[curr][1];
+
+    ans = Math.min(ans, sum);
+}
     public static void choose(int currNum) {
-        if(currNum == n+1) {
+        if(currNum == n) {
             calcCost();
             return;
         }
 
-        for(int i = 1; i <= n; i++) {
+        for(int i = 2; i <= n; i++) {
             if(visited[i]) {
                 continue;
             }
@@ -69,6 +75,7 @@ public class Main {
             }
         }
 
+        
         choose(1);
 
         System.out.print(ans);
