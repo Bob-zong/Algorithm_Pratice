@@ -92,7 +92,10 @@ public class Main {
         }
 
         for(int i = 1; i <= n; i++) {
-            System.out.println(dist[i]);
+            if(dist[i] != (int)1e9)
+                System.out.print(dist[i]);
+            else
+                System.out.print(-1);
         }
     }
 }
