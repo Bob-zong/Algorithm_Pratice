@@ -93,9 +93,9 @@ public class Main {
 
         for(int i = 1; i <= n; i++) {
             if(dist[i] != (int)1e9)
-                System.out.print(dist[i]);
+                System.out.println(dist[i]);
             else
-                System.out.print(-1);
+                System.out.println(-1);
         }
     }
 }
