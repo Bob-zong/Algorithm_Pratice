@@ -62,6 +62,7 @@ public class Main {
             int weight = Integer.parseInt(st.nextToken());
 
             graph[vertex1].add(new Node(vertex2, weight));
+            graph[vertex2].add(new Node(vertex1, weight));
         }
 
         st = new StringTokenizer(br.readLine());
@@ -89,8 +90,9 @@ public class Main {
                 
                 if(dist[targetIndex] > newDist) {
                     dist[targetIndex] = newDist;
-                    pq.add(new Element(newDist, targetIndex));
                     path[targetIndex] = minIndex;
+                    pq.add(new Element(newDist, targetIndex));
+                    
                 }
             }
 
